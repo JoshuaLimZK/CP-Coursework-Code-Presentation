@@ -7,146 +7,2525 @@ import { github, vsDark } from "@code-surfer/themes";
 
 export const theme = vsDark;
 
-# Hello 👋
-
-You are using [MDX Deck](https://github.com/jxnblk/mdx-deck) and [Code Surfer](https://codesurfer.pomb.us)
-
+# Free Homework Manager 2022
+---
+# Joshua Lim
+## Login, Registration & Account Handling
 ---
 
 <CodeSurfer>
 
-```js title="This is a title" subtitle="and this a subtitle"
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
+```python title="Imports and Firebase Setup"
+from tkinter import *
+from tkinter import ttk
+from tkinter import messagebox
+from tkcalendar import DateEntry
+
+import re
+
+from datetime import date
+
+import pyrebase
+
+import requests
+import json
+
+fbconfig = {
+  # REDACTED
 }
 
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
+firebase = pyrebase.initialize_app(fbconfig)
 
-  if (!sit || ut < 1) {
-    return [];
-  }
-
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
+auth = firebase.auth()
+db = firebase.database()
 ```
 
-```js
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
+```python 1:4 title="Tkinter Components"
+from tkinter import *
+from tkinter import ttk
+from tkinter import messagebox
+from tkcalendar import DateEntry
+
+import re
+
+from datetime import date
+
+import pyrebase
+
+import requests
+import json
+
+fbconfig = {
+  # REDACTED
 }
 
-function adipiscing(...elit) {
-  if (!elit.sit) {
-    return [];
-  }
+firebase = pyrebase.initialize_app(fbconfig)
 
-  const sed = elit[0];
-  return eiusmod.tempor(sed) ? sed : [sed];
-}
-
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
-
-  if (!sit || ut < 1) {
-    return [];
-  }
-
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
+auth = firebase.auth()
+db = firebase.database()
 ```
 
-```diff 1[10:14],2[15:19],3[22:27],10:12
+```python 6:13 title="Miscellaneous Packages"
+from tkinter import *
+from tkinter import ttk
+from tkinter import messagebox
+from tkcalendar import DateEntry
 
+import re
+
+from datetime import date
+
+import pyrebase
+
+import requests
+import json
+
+fbconfig = {
+  # REDACTED
+}
+
+firebase = pyrebase.initialize_app(fbconfig)
+
+auth = firebase.auth()
+db = firebase.database()
+```
+
+```python 15:22 title="Firebase Setup"
+from tkinter import *
+from tkinter import ttk
+from tkinter import messagebox
+from tkcalendar import DateEntry
+
+import re
+
+from datetime import date
+
+import pyrebase
+
+import requests
+import json
+
+fbconfig = {
+  # REDACTED
+}
+
+firebase = pyrebase.initialize_app(fbconfig)
+
+auth = firebase.auth()
+db = firebase.database()
 ```
 
 </CodeSurfer>
 
 ---
 
-<CodeSurferColumns themes={[vsDark, github]}>
+<CodeSurfer>
 
-<Step>
-
-```js
-const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
+```python title="App Class"
+class app:
+  def __init__(self, master):
+        self.master = master
+        self.login()
+  ...
 ```
 
-```js
-const minim = (ad, enim) => dolore.magna(ad / enim);
+```python 5
+class app:
+  def __init__(self, master):
+        self.master = master
+        self.login()
+  ...
 ```
 
-</Step>
-
-<Step>
-
-```js
-const lorem = (ipsum, dolor, sit) => {
-  const amet = dolor - ipsum;
-  return consectetur.adipiscing(
-    {
-      elit: sed.eiusmod(sit - dolor) / amet + 2,
-    },
-    (tempor, incididunt) => ipsum + amet * incididunt
-  );
-};
-
-const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
-```
-
-```js
-const minim = (ad, enim) => dolore.magna(ad / enim);
-
-const sed = (eiusmod, tempor, incididunt) => {
-  const ut = tempor - eiusmod;
-  return labore.et(
-    {
-      amet: dolore.magna(incididunt - tempor) / ut + 2,
-    },
-    (aliqua, elit) => eiusmod + ut * elit
-  );
-};
-```
-
-</Step>
-
-</CodeSurferColumns>
+</CodeSurfer>
 
 ---
 
-docs:  
-[codesurfer.pomb.us](https://codesurfer.pomb.us)
+<CodeSurfer>
+
+```python title="Login Page"
+def login(self):
+        for i in self.master.winfo_children():
+            i.destroy()
+
+        self.frame1 = Frame(self.master, width=300, height=300)
+        self.frame1.pack(expand = True)
+
+        self.emailIn = StringVar()
+        self.passwordIn = StringVar()
+
+        self.emailLb = ttk.Label(self.frame1, text='Email:')
+        self.emailEn = ttk.Entry(self.frame1, width=30, textvariable=self.emailIn)
+        self.passLb = ttk.Label(self.frame1, text='Password:')
+        self.passEn = ttk.Entry(self.frame1, width=30, show='*', textvariable=self.passwordIn)
+
+        self.loginBn = ttk.Button(self.frame1, text='Login', command=self.loginCheck)
+        self.regBn = ttk.Button(self.frame1, text="Register", command=self.register)
+
+        self.emailLb.grid(row = 0, column = 0, sticky = E)
+        self.passLb.grid(row = 1, column = 0, sticky = E)
+        self.emailEn.grid(row = 0, column = 1, sticky = W)
+        self.passEn.grid(row = 1, column = 1, sticky = W)
+        self.loginBn.grid(row = 2, column = 0, sticky = E)
+        self.regBn.grid(row = 2, column = 1, sticky = W)
+```
+
+```python title="Register Page"
+def register(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+    
+    #Frame for registration page
+    self.frame2 = Frame(self.master, width=300, height=300)
+    self.frame2.pack(expand = True)
+
+    #Inputs Stored Here
+    self.emailIn = StringVar()
+    self.passwordIn = StringVar()
+
+    #Generate Widgets
+    self.emailLb = ttk.Label(self.frame2, text='Email:')
+    self.emailEn = ttk.Entry(self.frame2, width=30, textvariable=self.emailIn)
+    self.passLb = ttk.Label(self.frame2, text='Password:')
+    self.passEn = ttk.Entry(self.frame2, width=30, show='*', textvariable=self.passwordIn)
+    
+    self.loginBn = ttk.Button(self.frame2, text='Register an Account', command=self.registerAcc)
+    self.regBn = ttk.Button(self.frame2, text="Back to Login", command=self.login)
+
+    self.emailLb.grid(row = 0, column = 0, sticky = E)
+    self.passLb.grid(row = 1, column = 0, sticky = E)
+    self.emailEn.grid(row = 0, column = 1, sticky = W)
+    self.passEn.grid(row = 1, column = 1, sticky = W)
+    self.loginBn.grid(row = 2, column = 0, sticky = E)
+    self.regBn.grid(row = 2, column = 1, sticky = W)
+```
+
+```python title="Login Validation"
+def loginCheck(self):
+    #Try to login, if there is a HTTP error, show user
+    try:
+        #Firebase Authentication
+        self.user = auth.sign_in_with_email_and_password(self.emailIn.get(), self.passwordIn.get())
+        #Go to Home Page
+        self.home()
+    except requests.exceptions.HTTPError as exception:
+        #Find out the HTTPError and show user
+        error_json = exception.args[1]
+        error = json.loads(error_json)['error']['message']
+        self.loginErrorHandling(error)
+```
+
+```python title="Try to sign in with password" 3:7
+def loginCheck(self):
+    #Try to login, if there is a HTTP error, show user
+    try:
+        #Firebase Authentication
+        self.user = auth.sign_in_with_email_and_password(self.emailIn.get(), self.passwordIn.get())
+        #Go to Home Page
+        self.home()
+    except requests.exceptions.HTTPError as exception:
+        #Find out the HTTPError and show user
+        error_json = exception.args[1]
+        error = json.loads(error_json)['error']['message']
+        self.loginErrorHandling(error)
+```
+
+```python title="Call loginErrorHandling() if there is a HTTPError" 8:13
+def loginCheck(self):
+    #Try to login, if there is a HTTP error, show user
+    try:
+        #Firebase Authentication
+        self.user = auth.sign_in_with_email_and_password(self.emailIn.get(), self.passwordIn.get())
+        #Go to Home Page
+        self.home()
+    except requests.exceptions.HTTPError as exception:
+        #Find out the HTTPError and show user
+        error_json = exception.args[1]
+        error = json.loads(error_json)['error']['message']
+        self.loginErrorHandling(error)
+```
+
+```python title="Register for Account" 1:18
+def registerAcc(self):
+    #Try to register, if there is a HTTP error, show user
+    try:
+        #Firebase create new account
+        auth.create_user_with_email_and_password(self.emailIn.get(), self.passwordIn.get())
+
+    except requests.exceptions.HTTPError as exception:
+        #Find out the HTTPError and show user
+        error_json = exception.args[1]
+        error = json.loads(error_json)['error']['message']
+        self.loginErrorHandling(error)
+    
+    else:
+        #Alert user that account created successful 
+        messagebox.showinfo("showinfo", "Account Created Successfully")
+        #Return to Login page
+        self.login()
+```
+
+```python title="Register for Account" 1:18
+def registerAcc(self):
+    #Try to register, if there is a HTTP error, show user
+    try:
+        #Firebase create new account
+        auth.create_user_with_email_and_password(self.emailIn.get(), self.passwordIn.get())
+
+    except requests.exceptions.HTTPError as exception:
+        #Find out the HTTPError and show user
+        error_json = exception.args[1]
+        error = json.loads(error_json)['error']['message']
+        self.loginErrorHandling(error)
+    
+    else:
+        #Alert user that account created successful 
+        messagebox.showinfo("showinfo", "Account Created Successfully")
+        #Return to Login page
+        self.login()
+```
+
+```python title="Try to register for an account" 3:5
+def registerAcc(self):
+    #Try to register, if there is a HTTP error, show user
+    try:
+        #Firebase create new account
+        auth.create_user_with_email_and_password(self.emailIn.get(), self.passwordIn.get())
+
+    except requests.exceptions.HTTPError as exception:
+        #Find out the HTTPError and show user
+        error_json = exception.args[1]
+        error = json.loads(error_json)['error']['message']
+        self.loginErrorHandling(error)
+    
+    else:
+        #Alert user that account created successful 
+        messagebox.showinfo("showinfo", "Account Created Successfully")
+        #Return to Login page
+        self.login()
+```
+
+```python title="Call loginErrorHandling() if there is a HTTPError" 7:11
+def registerAcc(self):
+    #Try to register, if there is a HTTP error, show user
+    try:
+        #Firebase create new account
+        auth.create_user_with_email_and_password(self.emailIn.get(), self.passwordIn.get())
+
+    except requests.exceptions.HTTPError as exception:
+        #Find out the HTTPError and show user
+        error_json = exception.args[1]
+        error = json.loads(error_json)['error']['message']
+        self.loginErrorHandling(error)
+    
+    else:
+        #Alert user that account created successful 
+        messagebox.showinfo("showinfo", "Account Created Successfully")
+        #Return to Login page
+        self.login()
+```
+
+```python title="Alert user if success and return to login page" 13:17
+def registerAcc(self):
+    #Try to register, if there is a HTTP error, show user
+    try:
+        #Firebase create new account
+        auth.create_user_with_email_and_password(self.emailIn.get(), self.passwordIn.get())
+
+    except requests.exceptions.HTTPError as exception:
+        #Find out the HTTPError and show user
+        error_json = exception.args[1]
+        error = json.loads(error_json)['error']['message']
+        self.loginErrorHandling(error)
+    
+    else:
+        #Alert user that account created successful 
+        messagebox.showinfo("showinfo", "Account Created Successfully")
+        #Return to Login page
+        self.login()
+```
+
+```python title="HTTP Error Handling"
+def loginErrorHandling(self, error):
+        #Alert user the error
+        messagebox.showerror("showerror", "Error: {}".format(error))
+```
+</CodeSurfer>
+
+---
+# Quentin Yeo
+## Displaying & Managing Data
+---
+
+<CodeSurfer>
+
+```python title="Home Page"
+def home(self):
+        for i in self.master.winfo_children():
+            i.destroy()
+        
+        #Frame for home page, menu area, main area and menu buttons
+        self.frame3 = Frame(self.master, width=300, height=300)
+        self.frame3.pack(expand = True, fill = BOTH)
+
+        self.menuFrame = Frame(self.frame3, width=100, height=300, bg='#cccccc')
+        self.menuFrame.grid(row=0, column=0, sticky=N+S+W)
+
+        self.mainFrame = Frame(self.frame3, width=200, height=300)
+        self.mainFrame.grid(row=0, column=1, sticky=N+S+E)
+
+        self.createNewBn = Button(self.menuFrame, text='Create New', command=self.createNew, highlightbackground='#cccccc')
+        self.createNewBn.grid(row = 0, column = 0, sticky = EW)
+
+        self.manageBn = Button(self.menuFrame, text='Manage Homework', command=self.manage, highlightbackground='#cccccc')
+        self.manageBn.grid(row = 1, column = 0, sticky = EW)
+
+        self.signoutBn = Button(self.menuFrame, text='Sign Out', command=self.login, highlightbackground='#cccccc')
+        self.signoutBn.grid(row = 2, column = 0, sticky = EW)
+        
+        self.timeTableGnBn = Button(self.menuFrame, text='Generate Time Table', command=self.timeTable, highlightbackground='#cccccc')
+        self.timeTableGnBn.grid(row=3, column=0, sticky=EW)
+
+        self.friendsBn = Button(self.menuFrame, text='Friends', command=self.friends, highlightbackground='#cccccc')
+        self.friendsBn.grid(row=4, column=0, sticky=EW)
+
+        #Pull data from Firebase Database
+        self.data = db.child("data").child(self.user['localId']).get()
+
+        #Set counter for row for widgets to appear
+        rowCounter = 2
+
+        if self.data.val() == None:
+            #If got no data, tell user
+            Label(self.mainFrame, text="No Homework Data").grid(row=0, column=0, sticky=W) 
+        else:
+            #Title Labels
+            Label(self.mainFrame, text="Incomplete:").grid(row=0, column=0, sticky=W) #Title Label
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=1, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=1, column=1, sticky=W)
+
+            offValue = IntVar()
+            offValue.set(0)
+
+            onValue = IntVar()
+            onValue.set(1)
+
+            #Iterate through homeworks, if incomplete, add label with name and date and checkbox 
+            for i in self.data.each():
+                if i.val()["completed"] == 0:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"])
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"])
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 1, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = offValue)
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                    
+                
+                rowCounter += 1
+            #Title Labels
+            Label(self.mainFrame, text="Complete:").grid(row=rowCounter, column=0, sticky=W)
+
+            rowCounter += 1
+
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=rowCounter, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=rowCounter, column=1, sticky=W)
+
+            rowCounter += 1
+
+            #Iterate through homeworks, if completed, add label with name and date and checkbox
+            for i in self.data.each():
+                if i.val()["completed"] == 1:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"], foreground='#AAAFB4')
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"], foreground='#AAAFB4')
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 0, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = IntVar().set(1))
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                        
+                    
+                    rowCounter += 1
+```
+
+```python title="Home Page" 5:28
+def home(self):
+        for i in self.master.winfo_children():
+            i.destroy()
+        
+        #Frame for home page, menu area, main area and menu buttons
+        self.frame3 = Frame(self.master, width=300, height=300)
+        self.frame3.pack(expand = True, fill = BOTH)
+
+        self.menuFrame = Frame(self.frame3, width=100, height=300, bg='#cccccc')
+        self.menuFrame.grid(row=0, column=0, sticky=N+S+W)
+
+        self.mainFrame = Frame(self.frame3, width=200, height=300)
+        self.mainFrame.grid(row=0, column=1, sticky=N+S+E)
+
+        self.createNewBn = Button(self.menuFrame, text='Create New', command=self.createNew, highlightbackground='#cccccc')
+        self.createNewBn.grid(row = 0, column = 0, sticky = EW)
+
+        self.manageBn = Button(self.menuFrame, text='Manage Homework', command=self.manage, highlightbackground='#cccccc')
+        self.manageBn.grid(row = 1, column = 0, sticky = EW)
+
+        self.signoutBn = Button(self.menuFrame, text='Sign Out', command=self.login, highlightbackground='#cccccc')
+        self.signoutBn.grid(row = 2, column = 0, sticky = EW)
+        
+        self.timeTableGnBn = Button(self.menuFrame, text='Generate Time Table', command=self.timeTable, highlightbackground='#cccccc')
+        self.timeTableGnBn.grid(row=3, column=0, sticky=EW)
+
+        self.friendsBn = Button(self.menuFrame, text='Friends', command=self.friends, highlightbackground='#cccccc')
+        self.friendsBn.grid(row=4, column=0, sticky=EW)
+
+        #Pull data from Firebase Database
+        self.data = db.child("data").child(self.user['localId']).get()
+
+        #Set counter for row for widgets to appear
+        rowCounter = 2
+
+        if self.data.val() == None:
+            #If got no data, tell user
+            Label(self.mainFrame, text="No Homework Data").grid(row=0, column=0, sticky=W) 
+        else:
+            #Title Labels
+            Label(self.mainFrame, text="Incomplete:").grid(row=0, column=0, sticky=W) #Title Label
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=1, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=1, column=1, sticky=W)
+
+            offValue = IntVar()
+            offValue.set(0)
+
+            onValue = IntVar()
+            onValue.set(1)
+
+            #Iterate through homeworks, if incomplete, add label with name and date and checkbox 
+            for i in self.data.each():
+                if i.val()["completed"] == 0:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"])
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"])
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 1, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = offValue)
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                    
+                
+                rowCounter += 1
+            #Title Labels
+            Label(self.mainFrame, text="Complete:").grid(row=rowCounter, column=0, sticky=W)
+
+            rowCounter += 1
+
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=rowCounter, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=rowCounter, column=1, sticky=W)
+
+            rowCounter += 1
+
+            #Iterate through homeworks, if completed, add label with name and date and checkbox
+            for i in self.data.each():
+                if i.val()["completed"] == 1:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"], foreground='#AAAFB4')
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"], foreground='#AAAFB4')
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 0, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = IntVar().set(1))
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                        
+                    
+                    rowCounter += 1
+```
+
+```python title="Home Page" 30:31
+def home(self):
+        for i in self.master.winfo_children():
+            i.destroy()
+        
+        #Frame for home page, menu area, main area and menu buttons
+        self.frame3 = Frame(self.master, width=300, height=300)
+        self.frame3.pack(expand = True, fill = BOTH)
+
+        self.menuFrame = Frame(self.frame3, width=100, height=300, bg='#cccccc')
+        self.menuFrame.grid(row=0, column=0, sticky=N+S+W)
+
+        self.mainFrame = Frame(self.frame3, width=200, height=300)
+        self.mainFrame.grid(row=0, column=1, sticky=N+S+E)
+
+        self.createNewBn = Button(self.menuFrame, text='Create New', command=self.createNew, highlightbackground='#cccccc')
+        self.createNewBn.grid(row = 0, column = 0, sticky = EW)
+
+        self.manageBn = Button(self.menuFrame, text='Manage Homework', command=self.manage, highlightbackground='#cccccc')
+        self.manageBn.grid(row = 1, column = 0, sticky = EW)
+
+        self.signoutBn = Button(self.menuFrame, text='Sign Out', command=self.login, highlightbackground='#cccccc')
+        self.signoutBn.grid(row = 2, column = 0, sticky = EW)
+        
+        self.timeTableGnBn = Button(self.menuFrame, text='Generate Time Table', command=self.timeTable, highlightbackground='#cccccc')
+        self.timeTableGnBn.grid(row=3, column=0, sticky=EW)
+
+        self.friendsBn = Button(self.menuFrame, text='Friends', command=self.friends, highlightbackground='#cccccc')
+        self.friendsBn.grid(row=4, column=0, sticky=EW)
+
+        #Pull data from Firebase Database
+        self.data = db.child("data").child(self.user['localId']).get()
+
+        #Set counter for row for widgets to appear
+        rowCounter = 2
+
+        if self.data.val() == None:
+            #If got no data, tell user
+            Label(self.mainFrame, text="No Homework Data").grid(row=0, column=0, sticky=W) 
+        else:
+            #Title Labels
+            Label(self.mainFrame, text="Incomplete:").grid(row=0, column=0, sticky=W) #Title Label
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=1, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=1, column=1, sticky=W)
+
+            offValue = IntVar()
+            offValue.set(0)
+
+            onValue = IntVar()
+            onValue.set(1)
+
+            #Iterate through homeworks, if incomplete, add label with name and date and checkbox 
+            for i in self.data.each():
+                if i.val()["completed"] == 0:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"])
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"])
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 1, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = offValue)
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                    
+                
+                rowCounter += 1
+            #Title Labels
+            Label(self.mainFrame, text="Complete:").grid(row=rowCounter, column=0, sticky=W)
+
+            rowCounter += 1
+
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=rowCounter, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=rowCounter, column=1, sticky=W)
+
+            rowCounter += 1
+
+            #Iterate through homeworks, if completed, add label with name and date and checkbox
+            for i in self.data.each():
+                if i.val()["completed"] == 1:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"], foreground='#AAAFB4')
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"], foreground='#AAAFB4')
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 0, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = IntVar().set(1))
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                        
+                    
+                    rowCounter += 1
+```
+
+```python title="Home Page" 36:38
+def home(self):
+        for i in self.master.winfo_children():
+            i.destroy()
+        
+        #Frame for home page, menu area, main area and menu buttons
+        self.frame3 = Frame(self.master, width=300, height=300)
+        self.frame3.pack(expand = True, fill = BOTH)
+
+        self.menuFrame = Frame(self.frame3, width=100, height=300, bg='#cccccc')
+        self.menuFrame.grid(row=0, column=0, sticky=N+S+W)
+
+        self.mainFrame = Frame(self.frame3, width=200, height=300)
+        self.mainFrame.grid(row=0, column=1, sticky=N+S+E)
+
+        self.createNewBn = Button(self.menuFrame, text='Create New', command=self.createNew, highlightbackground='#cccccc')
+        self.createNewBn.grid(row = 0, column = 0, sticky = EW)
+
+        self.manageBn = Button(self.menuFrame, text='Manage Homework', command=self.manage, highlightbackground='#cccccc')
+        self.manageBn.grid(row = 1, column = 0, sticky = EW)
+
+        self.signoutBn = Button(self.menuFrame, text='Sign Out', command=self.login, highlightbackground='#cccccc')
+        self.signoutBn.grid(row = 2, column = 0, sticky = EW)
+        
+        self.timeTableGnBn = Button(self.menuFrame, text='Generate Time Table', command=self.timeTable, highlightbackground='#cccccc')
+        self.timeTableGnBn.grid(row=3, column=0, sticky=EW)
+
+        self.friendsBn = Button(self.menuFrame, text='Friends', command=self.friends, highlightbackground='#cccccc')
+        self.friendsBn.grid(row=4, column=0, sticky=EW)
+
+        #Pull data from Firebase Database
+        self.data = db.child("data").child(self.user['localId']).get()
+
+        #Set counter for row for widgets to appear
+        rowCounter = 2
+
+        if self.data.val() == None:
+            #If got no data, tell user
+            Label(self.mainFrame, text="No Homework Data").grid(row=0, column=0, sticky=W) 
+        else:
+            #Title Labels
+            Label(self.mainFrame, text="Incomplete:").grid(row=0, column=0, sticky=W) #Title Label
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=1, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=1, column=1, sticky=W)
+
+            offValue = IntVar()
+            offValue.set(0)
+
+            onValue = IntVar()
+            onValue.set(1)
+
+            #Iterate through homeworks, if incomplete, add label with name and date and checkbox 
+            for i in self.data.each():
+                if i.val()["completed"] == 0:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"])
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"])
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 1, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = offValue)
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                    
+                
+                rowCounter += 1
+            #Title Labels
+            Label(self.mainFrame, text="Complete:").grid(row=rowCounter, column=0, sticky=W)
+
+            rowCounter += 1
+
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=rowCounter, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=rowCounter, column=1, sticky=W)
+
+            rowCounter += 1
+
+            #Iterate through homeworks, if completed, add label with name and date and checkbox
+            for i in self.data.each():
+                if i.val()["completed"] == 1:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"], foreground='#AAAFB4')
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"], foreground='#AAAFB4')
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 0, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = IntVar().set(1))
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                        
+                    
+                    rowCounter += 1
+```
+
+```python title="Home Page" 40:50
+def home(self):
+        for i in self.master.winfo_children():
+            i.destroy()
+        
+        #Frame for home page, menu area, main area and menu buttons
+        self.frame3 = Frame(self.master, width=300, height=300)
+        self.frame3.pack(expand = True, fill = BOTH)
+
+        self.menuFrame = Frame(self.frame3, width=100, height=300, bg='#cccccc')
+        self.menuFrame.grid(row=0, column=0, sticky=N+S+W)
+
+        self.mainFrame = Frame(self.frame3, width=200, height=300)
+        self.mainFrame.grid(row=0, column=1, sticky=N+S+E)
+
+        self.createNewBn = Button(self.menuFrame, text='Create New', command=self.createNew, highlightbackground='#cccccc')
+        self.createNewBn.grid(row = 0, column = 0, sticky = EW)
+
+        self.manageBn = Button(self.menuFrame, text='Manage Homework', command=self.manage, highlightbackground='#cccccc')
+        self.manageBn.grid(row = 1, column = 0, sticky = EW)
+
+        self.signoutBn = Button(self.menuFrame, text='Sign Out', command=self.login, highlightbackground='#cccccc')
+        self.signoutBn.grid(row = 2, column = 0, sticky = EW)
+        
+        self.timeTableGnBn = Button(self.menuFrame, text='Generate Time Table', command=self.timeTable, highlightbackground='#cccccc')
+        self.timeTableGnBn.grid(row=3, column=0, sticky=EW)
+
+        self.friendsBn = Button(self.menuFrame, text='Friends', command=self.friends, highlightbackground='#cccccc')
+        self.friendsBn.grid(row=4, column=0, sticky=EW)
+
+        #Pull data from Firebase Database
+        self.data = db.child("data").child(self.user['localId']).get()
+
+        #Set counter for row for widgets to appear
+        rowCounter = 2
+
+        if self.data.val() == None:
+            #If got no data, tell user
+            Label(self.mainFrame, text="No Homework Data").grid(row=0, column=0, sticky=W) 
+        else:
+            #Title Labels
+            Label(self.mainFrame, text="Incomplete:").grid(row=0, column=0, sticky=W) #Title Label
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=1, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=1, column=1, sticky=W)
+
+            offValue = IntVar()
+            offValue.set(0)
+
+            onValue = IntVar()
+            onValue.set(1)
+
+            #Iterate through homeworks, if incomplete, add label with name and date and checkbox 
+            for i in self.data.each():
+                if i.val()["completed"] == 0:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"])
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"])
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 1, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = offValue)
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                    
+                
+                rowCounter += 1
+            #Title Labels
+            Label(self.mainFrame, text="Complete:").grid(row=rowCounter, column=0, sticky=W)
+
+            rowCounter += 1
+
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=rowCounter, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=rowCounter, column=1, sticky=W)
+
+            rowCounter += 1
+
+            #Iterate through homeworks, if completed, add label with name and date and checkbox
+            for i in self.data.each():
+                if i.val()["completed"] == 1:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"], foreground='#AAAFB4')
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"], foreground='#AAAFB4')
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 0, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = IntVar().set(1))
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                        
+                    
+                    rowCounter += 1
+```
+
+```python title="Home Page" 52:63
+def home(self):
+        for i in self.master.winfo_children():
+            i.destroy()
+        
+        #Frame for home page, menu area, main area and menu buttons
+        self.frame3 = Frame(self.master, width=300, height=300)
+        self.frame3.pack(expand = True, fill = BOTH)
+
+        self.menuFrame = Frame(self.frame3, width=100, height=300, bg='#cccccc')
+        self.menuFrame.grid(row=0, column=0, sticky=N+S+W)
+
+        self.mainFrame = Frame(self.frame3, width=200, height=300)
+        self.mainFrame.grid(row=0, column=1, sticky=N+S+E)
+
+        self.createNewBn = Button(self.menuFrame, text='Create New', command=self.createNew, highlightbackground='#cccccc')
+        self.createNewBn.grid(row = 0, column = 0, sticky = EW)
+
+        self.manageBn = Button(self.menuFrame, text='Manage Homework', command=self.manage, highlightbackground='#cccccc')
+        self.manageBn.grid(row = 1, column = 0, sticky = EW)
+
+        self.signoutBn = Button(self.menuFrame, text='Sign Out', command=self.login, highlightbackground='#cccccc')
+        self.signoutBn.grid(row = 2, column = 0, sticky = EW)
+        
+        self.timeTableGnBn = Button(self.menuFrame, text='Generate Time Table', command=self.timeTable, highlightbackground='#cccccc')
+        self.timeTableGnBn.grid(row=3, column=0, sticky=EW)
+
+        self.friendsBn = Button(self.menuFrame, text='Friends', command=self.friends, highlightbackground='#cccccc')
+        self.friendsBn.grid(row=4, column=0, sticky=EW)
+
+        #Pull data from Firebase Database
+        self.data = db.child("data").child(self.user['localId']).get()
+
+        #Set counter for row for widgets to appear
+        rowCounter = 2
+
+        if self.data.val() == None:
+            #If got no data, tell user
+            Label(self.mainFrame, text="No Homework Data").grid(row=0, column=0, sticky=W) 
+        else:
+            #Title Labels
+            Label(self.mainFrame, text="Incomplete:").grid(row=0, column=0, sticky=W) #Title Label
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=1, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=1, column=1, sticky=W)
+
+            offValue = IntVar()
+            offValue.set(0)
+
+            onValue = IntVar()
+            onValue.set(1)
+
+            #Iterate through homeworks, if incomplete, add label with name and date and checkbox 
+            for i in self.data.each():
+                if i.val()["completed"] == 0:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"])
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"])
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 1, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = offValue)
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                    
+                
+                rowCounter += 1
+            #Title Labels
+            Label(self.mainFrame, text="Complete:").grid(row=rowCounter, column=0, sticky=W)
+
+            rowCounter += 1
+
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=rowCounter, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=rowCounter, column=1, sticky=W)
+
+            rowCounter += 1
+
+            #Iterate through homeworks, if completed, add label with name and date and checkbox
+            for i in self.data.each():
+                if i.val()["completed"] == 1:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"], foreground='#AAAFB4')
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"], foreground='#AAAFB4')
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 0, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = IntVar().set(1))
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                        
+                    
+                    rowCounter += 1
+```
+
+```python title="Home Page" 64:73
+def home(self):
+        for i in self.master.winfo_children():
+            i.destroy()
+        
+        #Frame for home page, menu area, main area and menu buttons
+        self.frame3 = Frame(self.master, width=300, height=300)
+        self.frame3.pack(expand = True, fill = BOTH)
+
+        self.menuFrame = Frame(self.frame3, width=100, height=300, bg='#cccccc')
+        self.menuFrame.grid(row=0, column=0, sticky=N+S+W)
+
+        self.mainFrame = Frame(self.frame3, width=200, height=300)
+        self.mainFrame.grid(row=0, column=1, sticky=N+S+E)
+
+        self.createNewBn = Button(self.menuFrame, text='Create New', command=self.createNew, highlightbackground='#cccccc')
+        self.createNewBn.grid(row = 0, column = 0, sticky = EW)
+
+        self.manageBn = Button(self.menuFrame, text='Manage Homework', command=self.manage, highlightbackground='#cccccc')
+        self.manageBn.grid(row = 1, column = 0, sticky = EW)
+
+        self.signoutBn = Button(self.menuFrame, text='Sign Out', command=self.login, highlightbackground='#cccccc')
+        self.signoutBn.grid(row = 2, column = 0, sticky = EW)
+        
+        self.timeTableGnBn = Button(self.menuFrame, text='Generate Time Table', command=self.timeTable, highlightbackground='#cccccc')
+        self.timeTableGnBn.grid(row=3, column=0, sticky=EW)
+
+        self.friendsBn = Button(self.menuFrame, text='Friends', command=self.friends, highlightbackground='#cccccc')
+        self.friendsBn.grid(row=4, column=0, sticky=EW)
+
+        #Pull data from Firebase Database
+        self.data = db.child("data").child(self.user['localId']).get()
+
+        #Set counter for row for widgets to appear
+        rowCounter = 2
+
+        if self.data.val() == None:
+            #If got no data, tell user
+            Label(self.mainFrame, text="No Homework Data").grid(row=0, column=0, sticky=W) 
+        else:
+            #Title Labels
+            Label(self.mainFrame, text="Incomplete:").grid(row=0, column=0, sticky=W) #Title Label
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=1, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=1, column=1, sticky=W)
+
+            offValue = IntVar()
+            offValue.set(0)
+
+            onValue = IntVar()
+            onValue.set(1)
+
+            #Iterate through homeworks, if incomplete, add label with name and date and checkbox 
+            for i in self.data.each():
+                if i.val()["completed"] == 0:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"])
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"])
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 1, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = offValue)
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                    
+                
+                rowCounter += 1
+            #Title Labels
+            Label(self.mainFrame, text="Complete:").grid(row=rowCounter, column=0, sticky=W)
+
+            rowCounter += 1
+
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=rowCounter, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=rowCounter, column=1, sticky=W)
+
+            rowCounter += 1
+
+            #Iterate through homeworks, if completed, add label with name and date and checkbox
+            for i in self.data.each():
+                if i.val()["completed"] == 1:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"], foreground='#AAAFB4')
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"], foreground='#AAAFB4')
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 0, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = IntVar().set(1))
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                        
+                    
+                    rowCounter += 1
+```
+
+```python title="Home Page" 74:86
+def home(self):
+        for i in self.master.winfo_children():
+            i.destroy()
+        
+        #Frame for home page, menu area, main area and menu buttons
+        self.frame3 = Frame(self.master, width=300, height=300)
+        self.frame3.pack(expand = True, fill = BOTH)
+
+        self.menuFrame = Frame(self.frame3, width=100, height=300, bg='#cccccc')
+        self.menuFrame.grid(row=0, column=0, sticky=N+S+W)
+
+        self.mainFrame = Frame(self.frame3, width=200, height=300)
+        self.mainFrame.grid(row=0, column=1, sticky=N+S+E)
+
+        self.createNewBn = Button(self.menuFrame, text='Create New', command=self.createNew, highlightbackground='#cccccc')
+        self.createNewBn.grid(row = 0, column = 0, sticky = EW)
+
+        self.manageBn = Button(self.menuFrame, text='Manage Homework', command=self.manage, highlightbackground='#cccccc')
+        self.manageBn.grid(row = 1, column = 0, sticky = EW)
+
+        self.signoutBn = Button(self.menuFrame, text='Sign Out', command=self.login, highlightbackground='#cccccc')
+        self.signoutBn.grid(row = 2, column = 0, sticky = EW)
+        
+        self.timeTableGnBn = Button(self.menuFrame, text='Generate Time Table', command=self.timeTable, highlightbackground='#cccccc')
+        self.timeTableGnBn.grid(row=3, column=0, sticky=EW)
+
+        self.friendsBn = Button(self.menuFrame, text='Friends', command=self.friends, highlightbackground='#cccccc')
+        self.friendsBn.grid(row=4, column=0, sticky=EW)
+
+        #Pull data from Firebase Database
+        self.data = db.child("data").child(self.user['localId']).get()
+
+        #Set counter for row for widgets to appear
+        rowCounter = 2
+
+        if self.data.val() == None:
+            #If got no data, tell user
+            Label(self.mainFrame, text="No Homework Data").grid(row=0, column=0, sticky=W) 
+        else:
+            #Title Labels
+            Label(self.mainFrame, text="Incomplete:").grid(row=0, column=0, sticky=W) #Title Label
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=1, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=1, column=1, sticky=W)
+
+            offValue = IntVar()
+            offValue.set(0)
+
+            onValue = IntVar()
+            onValue.set(1)
+
+            #Iterate through homeworks, if incomplete, add label with name and date and checkbox 
+            for i in self.data.each():
+                if i.val()["completed"] == 0:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"])
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"])
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 1, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = offValue)
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                    
+                
+                rowCounter += 1
+            #Title Labels
+            Label(self.mainFrame, text="Complete:").grid(row=rowCounter, column=0, sticky=W)
+
+            rowCounter += 1
+
+            nameTitle = Label(self.mainFrame, text='Name of Homework').grid(row=rowCounter, column=0, sticky=W)
+            dueTitle = Label(self.mainFrame, text='Due Date').grid(row=rowCounter, column=1, sticky=W)
+
+            rowCounter += 1
+
+            #Iterate through homeworks, if completed, add label with name and date and checkbox
+            for i in self.data.each():
+                if i.val()["completed"] == 1:
+                    self.nameData = ttk.Label(self.mainFrame, text=i.val()["name"], foreground='#AAAFB4')
+                    self.dateData = ttk.Label(self.mainFrame, text=i.val()["date"], foreground='#AAAFB4')
+                    self.completedCheck = Checkbutton(self.mainFrame, command=lambda j=i: self.completed(j.key(), 0, j.val()["name"], j.val()["date"], j.val()["timeTaken"]), variable = IntVar().set(1))
+
+                    self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+                    self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+                    self.completedCheck.grid(row = rowCounter, column = 2, sticky = E)
+                        
+                    
+                    rowCounter += 1
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```python title="Check/Uncheck Complete Function"
+def completed(self, key, check, name, date, timeTaken):
+    db.child("data").child(self.user['localId']).child(key).update({"name": name,  "completed": check, "date": date, "timeTaken": timeTaken})
+    self.home()
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```python title="Create Homework Page"
+def createNew(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+
+    #Frame for create new page
+    self.frame4 = Frame(self.master, width=300, height=300)
+    self.frame4.pack(expand = True)
+    
+    #Generate Wigdets
+    self.nameVar = StringVar()
+    self.timeTakenVar = StringVar()
+    self.dateVar = StringVar()
+
+    self.nameLb = ttk.Label(self.frame4, text='Name:')
+    self.timeTakenLb = ttk.Label(self.frame4, text='Time Needed (Mins)')
+    self.dateLb = ttk.Label(self.frame4, text='Due Date:')
+
+    self.nameEn = ttk.Entry(self.frame4, width=30, textvariable=self.nameVar)
+    self.timeTakenEn = ttk.Entry(self.frame4, width=30, textvariable=self.timeTakenVar)
+    self.dateSelect = DateEntry(self.frame4, width=30, background='darkblue', foreground='white', borderwidth=2, date_pattern='dd/mm/yyyy', textvariable=self.dateVar)
+
+    self.nameLb.grid(row = 0, column = 0, sticky = E)
+    self.timeTakenLb.grid(row = 1, column = 0, sticky = E)
+    self.dateLb.grid(row = 2, column = 0, sticky = E)
+
+    self.nameEn.grid(row = 0, column = 1, sticky = W)
+    self.timeTakenEn.grid(row = 1, column = 1, sticky = W)
+    self.dateSelect.grid(row = 2, column = 1, sticky = W)
+
+    self.confirmBn = ttk.Button(self.frame4, text='Confirm', command=self.confirmAdd)
+    self.cancelBn = ttk.Button(self.frame4, text='Cancel', command=self.home)
+
+    self.cancelBn.grid(row = 3, column = 0, sticky = E)
+    self.confirmBn.grid(row = 3, column = 1, sticky = W)
+```
+
+```python title="Add Homework Validation"
+def confirmAdd(self):
+    regexTestCase = "^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
+    #Only push data if date follows DD/MM/YYYY format and time taken is a valid number
+    if re.match(regexTestCase, self.dateVar.get()) and self.timeTakenVar.get().isdigit():
+        data = {"name": self.nameVar.get(), "timeTaken": int(self.timeTakenVar.get()), "date": self.dateVar.get(), "completed": 0}
+        db.child("data").child(self.user['localId']).push(data)
+        self.home()
+    else:
+        #Alert user if any information is inaccurate
+        messagebox.showerror("Showerror", "Please enter a valid date and time taken")
+        return
+```
+
+
+```python title="Add Homework Validation" 2:7
+def confirmAdd(self):
+    regexTestCase = "^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
+    #Only push data if date follows DD/MM/YYYY format and time taken is a valid number
+    if re.match(regexTestCase, self.dateVar.get()) and self.timeTakenVar.get().isdigit():
+        data = {"name": self.nameVar.get(), "timeTaken": int(self.timeTakenVar.get()), "date": self.dateVar.get(), "completed": 0}
+        db.child("data").child(self.user['localId']).push(data)
+        self.home()
+    else:
+        #Alert user if any information is inaccurate
+        messagebox.showerror("Showerror", "Please enter a valid date and time taken")
+        return
+```
+
+```python title="Add Homework Validation" 8:11
+def confirmAdd(self):
+    regexTestCase = "^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
+    #Only push data if date follows DD/MM/YYYY format and time taken is a valid number
+    if re.match(regexTestCase, self.dateVar.get()) and self.timeTakenVar.get().isdigit():
+        data = {"name": self.nameVar.get(), "timeTaken": int(self.timeTakenVar.get()), "date": self.dateVar.get(), "completed": 0}
+        db.child("data").child(self.user['localId']).push(data)
+        self.home()
+    else:
+        #Alert user if any information is inaccurate
+        messagebox.showerror("Showerror", "Please enter a valid date and time taken")
+        return
+```
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```python title="Manage Homework Page"
+def manage(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+
+    #Frame for manage homeworks page
+    self.frame5 = Frame(self.master, width=300, height=300)
+    self.frame5.pack(expand = True, fill = BOTH)
+
+    #Pull homework data from database
+    self.data = db.child("data").child(self.user['localId']).get()
+
+    rowCounter = 1
+
+    #Title Labels
+    nameTitle = Label(self.frame5, text='Name of Homework').grid(row=0, column=0, sticky=W)
+    dueTitle = Label(self.frame5, text='Due Date').grid(row=0, column=1, sticky=W)
+    #Try display data if any data avaliable
+    try:
+        for i in self.data.each():
+            
+            self.nameData = Label(self.frame5, text=i.val()["name"])
+            self.dateData = Label(self.frame5, text=i.val()["date"])
+            self.editBn = Button(self.frame5, text='Edit', command=lambda j=i: self.editData(j.key(), j.val()["name"], j.val()["timeTaken"], j.val()["date"]))
+            self.deleteBn = Button(self.frame5, text='Delete', command=lambda j=i: self.deleteData(j.key(), j.val()["name"]))
+
+            self.nameData.grid(row = rowCounter, column = 0, sticky = E)
+            self.dateData.grid(row = rowCounter, column = 1, sticky = E)
+            self.editBn.grid(row = rowCounter, column = 2, sticky = EW)
+            self.deleteBn.grid(row = rowCounter, column = 3, sticky = EW)
+        
+            rowCounter += 1
+    except:
+        pass
+    
+    #Return to home button
+    backBn = Button(self.frame5, text='Back', command=self.home).grid(row=rowCounter, column=0, sticky=W)
+    backBn.grid(row=rowCounter, column=1, sticky=W)
+```
+
+```python title="Edit Data of Selected Homework Page" 1:37
+def editData(self, key, name, timeTaken, date):
+    for i in self.master.winfo_children():
+        i.destroy()
+
+    #Frame for Editing Homework
+    self.frame7 = Frame(self.master, width=300, height=300)
+    self.frame7.pack(expand = True)
+    
+    #Generate Widgets
+    self.nameVar = StringVar()
+    self.timeTakenVar = StringVar()
+    self.dateVar = StringVar()
+
+    self.nameVar.set(name)
+    self.timeTakenVar.set(timeTaken)
+    self.dateVar.set(date)
+
+    self.nameLb = ttk.Label(self.frame7, text='Name:')
+    self.timeTakenLb = ttk.Label(self.frame7, text='Time Needed (Mins):')
+    self.dateLb = ttk.Label(self.frame7, text='Due Date:')
+
+    self.nameEn = ttk.Entry(self.frame7, width=30, textvariable=self.nameVar)
+    self.timeTakenEn = ttk.Entry(self.frame7, width=30, textvariable=self.timeTakenVar)
+    self.dateSelect = DateEntry(self.frame7, width=30, background='darkblue', foreground='white', borderwidth=2, date_pattern='dd/mm/yyyy', textvariable=self.dateVar)
+
+    self.nameLb.grid(row = 0, column = 0, sticky = E)
+    self.timeTakenLb.grid(row = 1, column = 0, sticky = E)
+    self.dateLb.grid(row = 2, column = 0, sticky = E)
+
+    self.nameEn.grid(row = 0, column = 1, sticky = W)
+    self.timeTakenEn.grid(row = 1, column = 1, sticky = W)
+    self.dateSelect.grid(row = 2, column = 1, sticky = W)
+
+    self.confirmBn = ttk.Button(self.frame7, text='Confirm', command=lambda: self.confirmEdit(key))
+    self.cancelBn = ttk.Button(self.frame7, text='Cancel', command=lambda: self.manage())
+
+    self.cancelBn.grid(row = 3, column = 0, sticky = E)
+    self.confirmBn.grid(row = 3, column = 1, sticky = W)
+```
+
+```python title="Confirm Data Edit Function"
+def confirmEdit(self, key):
+    regexTestCase = "^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
+    #Only push data if date follows DD/MM/YYYY format and time taken is a valid number
+    if re.match(regexTestCase, self.dateVar.get()) and self.timeTakenVar.get().isdigit():
+        data = {"name": self.nameVar.get(), "timeTaken": int(self.timeTakenVar.get()), "date": self.dateVar.get()}
+        db.child("data").child(self.user['localId']).child(key).update(data)
+        self.manage()
+    else:
+        #Alert user if information is inaccurate
+        messagebox.showerror("Showerror", "Please enter a valid date and time taken")
+        return
+```
+
+```python title="Confirm Data Edit Function" 2:7
+def confirmEdit(self, key):
+    regexTestCase = "^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
+    #Only push data if date follows DD/MM/YYYY format and time taken is a valid number
+    if re.match(regexTestCase, self.dateVar.get()) and self.timeTakenVar.get().isdigit():
+        data = {"name": self.nameVar.get(), "timeTaken": int(self.timeTakenVar.get()), "date": self.dateVar.get()}
+        db.child("data").child(self.user['localId']).child(key).update(data)
+        self.manage()
+    else:
+        #Alert user if information is inaccurate
+        messagebox.showerror("Showerror", "Please enter a valid date and time taken")
+        return
+```
+
+```python title="Confirm Data Edit Function" 8:11
+def confirmEdit(self, key):
+    regexTestCase = "^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
+    #Only push data if date follows DD/MM/YYYY format and time taken is a valid number
+    if re.match(regexTestCase, self.dateVar.get()) and self.timeTakenVar.get().isdigit():
+        data = {"name": self.nameVar.get(), "timeTaken": int(self.timeTakenVar.get()), "date": self.dateVar.get()}
+        db.child("data").child(self.user['localId']).child(key).update(data)
+        self.manage()
+    else:
+        #Alert user if information is inaccurate
+        messagebox.showerror("Showerror", "Please enter a valid date and time taken")
+        return
+```
+
+```python title="Delete Data Function"
+def deleteData(self, key, name):
+
+    #Warn user before they delete data
+    proceed = messagebox.askokcancel("askokcancel", "Are you sure you want to delete \"{}\"".format(name))
+
+    if proceed:
+        db.child("data").child(self.user['localId']).child(key).remove()
+    
+    #Return to manage homework page
+    self.manage()
+```
+
+```python title="Delete Data Function" 3:4
+def deleteData(self, key, name):
+
+    #Warn user before they delete data
+    proceed = messagebox.askokcancel("askokcancel", "Are you sure you want to delete \"{}\"".format(name))
+
+    if proceed:
+        db.child("data").child(self.user['localId']).child(key).remove()
+    
+    #Return to manage homework page
+    self.manage()
+```
+
+```python title="Delete Data Function" 6:7
+def deleteData(self, key, name):
+
+    #Warn user before they delete data
+    proceed = messagebox.askokcancel("askokcancel", "Are you sure you want to delete \"{}\"".format(name))
+
+    if proceed:
+        db.child("data").child(self.user['localId']).child(key).remove()
+    
+    #Return to manage homework page
+    self.manage()
+```
+
+```python title="Delete Data Function" 9:10
+def deleteData(self, key, name):
+
+    #Warn user before they delete data
+    proceed = messagebox.askokcancel("askokcancel", "Are you sure you want to delete \"{}\"".format(name))
+
+    if proceed:
+        db.child("data").child(self.user['localId']).child(key).remove()
+    
+    #Return to manage homework page
+    self.manage()
+```
+
+</CodeSurfer>
+
+---
+# Ethan Wang
+## Time Table Generation Algorithm
+---
+
+<CodeSurfer>
+
+```python title="Set time range that you want to study from Page"
+def workTiming(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+    
+    #Frame for work duration page
+    self.frame7 = Frame(self.master, width=300, height=300)
+    self.frame7.pack(expand = True)
+    
+    #Variables for storing start and end timings
+    self.startTimingVar = StringVar()
+    self.endTimingVar = StringVar()
+
+    #Generate Widgets
+    Label(self.frame7, text='Work Timing').grid(row=0, column=0, sticky=W)
+    Entry(self.frame7, width=30, textvariable=self.startTimingVar).grid(row=1, column=1, sticky=W)
+    Label(self.frame7, text='Start Timing (24H Format, HHMM):').grid(row=1, column=0, sticky=W)
+    Entry(self.frame7, width=30, textvariable=self.endTimingVar).grid(row=2, column=1, sticky=W)
+    Label(self.frame7, text='End Timing (24H Format, HHMM):').grid(row=2, column=0, sticky=W)
+    
+    #Confirm and Cancel Buttons
+    Button(self.frame7, text='Confirm', command=lambda:self.confirmWorkTiming(self.startTimingVar.get(), self.endTimingVar.get())).grid(row=3, column=0, sticky=E)
+    #Cancel return to time table page
+    Button(self.frame7, text='Cancel', command=self.timeTable).grid(row=3, column=1, sticky=W)
+```
+
+```python title="Confirm time Range"
+def confirmWorkTiming(self, startTiming, endTiming):
+        regexTestCase = "^([01]\d|2[0-4]):?([0-5]\d)$"
+        #Check that timing matches 24H "HHMM" format
+        if re.match(regexTestCase, startTiming) and re.match(regexTestCase, endTiming) and startTiming < endTiming:
+            db.child("timing").child(self.user['localId']).set({"startTiming": startTiming, "endTiming": endTiming})
+            #Return to time table page
+            self.timeTable()
+        else:
+            #Alert user that time is invalid
+            messagebox.showerror("Error", "Please enter a valid time")
+            self.workTiming()
+```
+
+```python title="Confirm time Range" 2:7
+def confirmWorkTiming(self, startTiming, endTiming):
+        regexTestCase = "^([01]\d|2[0-4]):?([0-5]\d)$"
+        #Check that timing matches 24H "HHMM" format
+        if re.match(regexTestCase, startTiming) and re.match(regexTestCase, endTiming) and startTiming < endTiming:
+            db.child("timing").child(self.user['localId']).set({"startTiming": startTiming, "endTiming": endTiming})
+            #Return to time table page
+            self.timeTable()
+        else:
+            #Alert user that time is invalid
+            messagebox.showerror("Error", "Please enter a valid time")
+            self.workTiming()
+```
+
+```python title="Confirm time Range" 8:11
+def confirmWorkTiming(self, startTiming, endTiming):
+        regexTestCase = "^([01]\d|2[0-4]):?([0-5]\d)$"
+        #Check that timing matches 24H "HHMM" format
+        if re.match(regexTestCase, startTiming) and re.match(regexTestCase, endTiming) and startTiming < endTiming:
+            db.child("timing").child(self.user['localId']).set({"startTiming": startTiming, "endTiming": endTiming})
+            #Return to time table page
+            self.timeTable()
+        else:
+            #Alert user that time is invalid
+            messagebox.showerror("Error", "Please enter a valid time")
+            self.workTiming()
+```
+
+```python title="Generate Time Table, Store Time Table and Display Function" 1:113
+def timeTable(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+
+    #Frame for generate time table page
+    self.frame6 = Frame(self.master, width=300, height=300)
+    self.frame6.pack(expand = True, fill = BOTH)
+
+    #Buttons
+    self.workTimingBn = Button(self.frame6, text='Change Work Duration', command=self.workTiming).grid(row=0, column=0, sticky=W)
+    self.regenerateBn = Button(self.frame6, text='Regenerate Time Table', command=self.regenerateTT).grid(row=0, column=1, sticky=W)
+
+    #Pull work timings data and display
+    timings = db.child("timing").child(self.user['localId']).get()
+    if timings.val() is None:
+        startTiming = "Not Set"
+        endTiming = "Not Set"
+    else:
+        startTiming = timings.val()["startTiming"]
+        endTiming = timings.val()["endTiming"]
+
+    Label(self.frame6, text='Start Time:').grid(row=1, column=0, sticky=W)
+    Label(self.frame6, text='End Time:').grid(row=2, column=0, sticky=W)
+    Label(self.frame6, text='{}'.format(startTiming)).grid(row=1, column=1, sticky=W)
+    Label(self.frame6, text='{}'.format(endTiming)).grid(row=2, column=1, sticky=W)
+
+    rowcount = 5
+
+    #TIME TABLE GENERATION ALGORITM™
+    if startTiming != "Not Set" and endTiming != "Not Set":
+        #Only continue if there is valid timing data
+        if db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val() is None:
+            #Only continue if timetable for the day has not been generated yet
+
+            #Pull data from firebase
+            unsortedData = db.child("data").child(self.user['localId']).get()
+
+            #Sort Data
+            data = sorted(unsortedData.val().items(), key= lambda x: x[1]["date"])
+
+            #Find total time allocated for homework
+            aTime = (int(endTiming[:2])-int(startTiming[:2])) * 60 + (int(endTiming[2:])-int(startTiming[2:]))
+
+            totalTime = 0 #Track total time for generated homework timetable
+
+            timeWithoutBreak = 0 #Track time since there has been a break
+            
+            indexes = [] #Track homework data of homework added to timetable
+            order = [] #Track order of homework
+
+            for i in data:
+                #If homework is incomplete
+                if i[1]["completed"] == 0:
+                    hwtime = int(i[1]["timeTaken"]) #Homework time taken
+                    if hwtime + totalTime <= aTime: #If time spent on homework + existing time used up is not exceeding total time allocated
+                        #add homework to time table
+                        totalTime += hwtime
+                        indexes.append(i)
+                        order.append(hwtime)
+                        timeWithoutBreak += hwtime
+
+                    if aTime - totalTime <= 10:
+                        break
+                    
+                    if timeWithoutBreak >= 60: #If went on for 1hour without break
+                        #Add break
+                        order.append("b")
+                        totalTime += 10
+                        timeWithoutBreak = 0
+
+            #Add Timetable for today to Firebase Database
+            db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).set({"order": order, "indexes": indexes})
+        else:
+            #Pull Existing Timetable for today from Firebase Database
+            order = db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val()["order"]
+            indexes = db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val()["indexes"]
+
+        intstart = startTiming
+
+        #Function for adding time together
+        def addtime(time,add):
+            h, m = int(time[:2]), int(time[2:])
+            m += add
+            h += m//60
+            m %= 60
+            h,m = str(h), str(m)    
+            if len(h) < 2:
+                h="0"+h
+            if len(m) < 2:
+                m="0"+m
+            return h+m
+
+        hwcount = 0
+
+        #Title Labels
+        Label(self.frame6, text='Timetable for {}'.format(date.today().strftime("%d%m%Y"))).grid(row=3, column=0, sticky=W)
+        Label(self.frame6, text='Timing').grid(row=rowcount - 1, column=0, sticky=W)
+        Label(self.frame6, text='Homework').grid(row=rowcount - 1, column=1, sticky=W)
+
+        #Iterate through timetable data and display homework with proper timing
+        for task in order:
+            if task == "b":
+                task = 10
+                title = "break"
+            else:
+                title = indexes[hwcount][1]['name']
+                hwcount += 1
+            rowcount += 1
+            intend = addtime(intstart, task)
+            Label(self.frame6, text='{} - {}'.format(intstart, intend)).grid(row=rowcount, column=0, sticky=W)
+            Label(self.frame6, text='{}'.format(title)).grid(row=rowcount, column=1, sticky=W)
+            intstart = intend        
+    #Return back to home screen button
+    Button(self.frame6, text='Back', command=self.home).grid(row=rowcount+1, column=0, sticky=W)
+```
+
+```python title="Generate Time Table, Store Time Table and Display Function" 5:27
+def timeTable(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+
+    #Frame for generate time table page
+    self.frame6 = Frame(self.master, width=300, height=300)
+    self.frame6.pack(expand = True, fill = BOTH)
+
+    #Buttons
+    self.workTimingBn = Button(self.frame6, text='Change Work Duration', command=self.workTiming).grid(row=0, column=0, sticky=W)
+    self.regenerateBn = Button(self.frame6, text='Regenerate Time Table', command=self.regenerateTT).grid(row=0, column=1, sticky=W)
+
+    #Pull work timings data and display
+    timings = db.child("timing").child(self.user['localId']).get()
+    if timings.val() is None:
+        startTiming = "Not Set"
+        endTiming = "Not Set"
+    else:
+        startTiming = timings.val()["startTiming"]
+        endTiming = timings.val()["endTiming"]
+
+    Label(self.frame6, text='Start Time:').grid(row=1, column=0, sticky=W)
+    Label(self.frame6, text='End Time:').grid(row=2, column=0, sticky=W)
+    Label(self.frame6, text='{}'.format(startTiming)).grid(row=1, column=1, sticky=W)
+    Label(self.frame6, text='{}'.format(endTiming)).grid(row=2, column=1, sticky=W)
+
+    rowcount = 5
+
+    #TIME TABLE GENERATION ALGORITM™
+    if startTiming != "Not Set" and endTiming != "Not Set":
+        #Only continue if there is valid timing data
+        if db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val() is None:
+            #Only continue if timetable for the day has not been generated yet
+
+            #Pull data from firebase
+            unsortedData = db.child("data").child(self.user['localId']).get()
+
+            #Sort Data
+            data = sorted(unsortedData.val().items(), key= lambda x: x[1]["date"])
+
+            #Find total time allocated for homework
+            aTime = (int(endTiming[:2])-int(startTiming[:2])) * 60 + (int(endTiming[2:])-int(startTiming[2:]))
+
+            totalTime = 0 #Track total time for generated homework timetable
+
+            timeWithoutBreak = 0 #Track time since there has been a break
+            
+            indexes = [] #Track homework data of homework added to timetable
+            order = [] #Track order of homework
+
+            for i in data:
+                #If homework is incomplete
+                if i[1]["completed"] == 0:
+                    hwtime = int(i[1]["timeTaken"]) #Homework time taken
+                    if hwtime + totalTime <= aTime: #If time spent on homework + existing time used up is not exceeding total time allocated
+                        #add homework to time table
+                        totalTime += hwtime
+                        indexes.append(i)
+                        order.append(hwtime)
+                        timeWithoutBreak += hwtime
+
+                    if aTime - totalTime <= 10:
+                        break
+                    
+                    if timeWithoutBreak >= 60: #If went on for 1hour without break
+                        #Add break
+                        order.append("b")
+                        totalTime += 10
+                        timeWithoutBreak = 0
+
+            #Add Timetable for today to Firebase Database
+            db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).set({"order": order, "indexes": indexes})
+        else:
+            #Pull Existing Timetable for today from Firebase Database
+            order = db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val()["order"]
+            indexes = db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val()["indexes"]
+
+        intstart = startTiming
+
+        #Function for adding time together
+        def addtime(time,add):
+            h, m = int(time[:2]), int(time[2:])
+            m += add
+            h += m//60
+            m %= 60
+            h,m = str(h), str(m)    
+            if len(h) < 2:
+                h="0"+h
+            if len(m) < 2:
+                m="0"+m
+            return h+m
+
+        hwcount = 0
+
+        #Title Labels
+        Label(self.frame6, text='Timetable for {}'.format(date.today().strftime("%d%m%Y"))).grid(row=3, column=0, sticky=W)
+        Label(self.frame6, text='Timing').grid(row=rowcount - 1, column=0, sticky=W)
+        Label(self.frame6, text='Homework').grid(row=rowcount - 1, column=1, sticky=W)
+
+        #Iterate through timetable data and display homework with proper timing
+        for task in order:
+            if task == "b":
+                task = 10
+                title = "break"
+            else:
+                title = indexes[hwcount][1]['name']
+                hwcount += 1
+            rowcount += 1
+            intend = addtime(intstart, task)
+            Label(self.frame6, text='{} - {}'.format(intstart, intend)).grid(row=rowcount, column=0, sticky=W)
+            Label(self.frame6, text='{}'.format(title)).grid(row=rowcount, column=1, sticky=W)
+            intstart = intend        
+    #Return back to home screen button
+    Button(self.frame6, text='Back', command=self.home).grid(row=rowcount+1, column=0, sticky=W)
+```
+
+```python title="Generate Time Table, Store Time Table and Display Function" 29:72
+def timeTable(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+
+    #Frame for generate time table page
+    self.frame6 = Frame(self.master, width=300, height=300)
+    self.frame6.pack(expand = True, fill = BOTH)
+
+    #Buttons
+    self.workTimingBn = Button(self.frame6, text='Change Work Duration', command=self.workTiming).grid(row=0, column=0, sticky=W)
+    self.regenerateBn = Button(self.frame6, text='Regenerate Time Table', command=self.regenerateTT).grid(row=0, column=1, sticky=W)
+
+    #Pull work timings data and display
+    timings = db.child("timing").child(self.user['localId']).get()
+    if timings.val() is None:
+        startTiming = "Not Set"
+        endTiming = "Not Set"
+    else:
+        startTiming = timings.val()["startTiming"]
+        endTiming = timings.val()["endTiming"]
+
+    Label(self.frame6, text='Start Time:').grid(row=1, column=0, sticky=W)
+    Label(self.frame6, text='End Time:').grid(row=2, column=0, sticky=W)
+    Label(self.frame6, text='{}'.format(startTiming)).grid(row=1, column=1, sticky=W)
+    Label(self.frame6, text='{}'.format(endTiming)).grid(row=2, column=1, sticky=W)
+
+    rowcount = 5
+
+    #TIME TABLE GENERATION ALGORITM™
+    if startTiming != "Not Set" and endTiming != "Not Set":
+        #Only continue if there is valid timing data
+        if db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val() is None:
+            #Only continue if timetable for the day has not been generated yet
+
+            #Pull data from firebase
+            unsortedData = db.child("data").child(self.user['localId']).get()
+
+            #Sort Data
+            data = sorted(unsortedData.val().items(), key= lambda x: x[1]["date"])
+
+            #Find total time allocated for homework
+            aTime = (int(endTiming[:2])-int(startTiming[:2])) * 60 + (int(endTiming[2:])-int(startTiming[2:]))
+
+            totalTime = 0 #Track total time for generated homework timetable
+
+            timeWithoutBreak = 0 #Track time since there has been a break
+            
+            indexes = [] #Track homework data of homework added to timetable
+            order = [] #Track order of homework
+
+            for i in data:
+                #If homework is incomplete
+                if i[1]["completed"] == 0:
+                    hwtime = int(i[1]["timeTaken"]) #Homework time taken
+                    if hwtime + totalTime <= aTime: #If time spent on homework + existing time used up is not exceeding total time allocated
+                        #add homework to time table
+                        totalTime += hwtime
+                        indexes.append(i)
+                        order.append(hwtime)
+                        timeWithoutBreak += hwtime
+
+                    if aTime - totalTime <= 10:
+                        break
+                    
+                    if timeWithoutBreak >= 60: #If went on for 1hour without break
+                        #Add break
+                        order.append("b")
+                        totalTime += 10
+                        timeWithoutBreak = 0
+
+            #Add Timetable for today to Firebase Database
+            db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).set({"order": order, "indexes": indexes})
+        else:
+            #Pull Existing Timetable for today from Firebase Database
+            order = db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val()["order"]
+            indexes = db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val()["indexes"]
+
+        intstart = startTiming
+
+        #Function for adding time together
+        def addtime(time,add):
+            h, m = int(time[:2]), int(time[2:])
+            m += add
+            h += m//60
+            m %= 60
+            h,m = str(h), str(m)    
+            if len(h) < 2:
+                h="0"+h
+            if len(m) < 2:
+                m="0"+m
+            return h+m
+
+        hwcount = 0
+
+        #Title Labels
+        Label(self.frame6, text='Timetable for {}'.format(date.today().strftime("%d%m%Y"))).grid(row=3, column=0, sticky=W)
+        Label(self.frame6, text='Timing').grid(row=rowcount - 1, column=0, sticky=W)
+        Label(self.frame6, text='Homework').grid(row=rowcount - 1, column=1, sticky=W)
+
+        #Iterate through timetable data and display homework with proper timing
+        for task in order:
+            if task == "b":
+                task = 10
+                title = "break"
+            else:
+                title = indexes[hwcount][1]['name']
+                hwcount += 1
+            rowcount += 1
+            intend = addtime(intstart, task)
+            Label(self.frame6, text='{} - {}'.format(intstart, intend)).grid(row=rowcount, column=0, sticky=W)
+            Label(self.frame6, text='{}'.format(title)).grid(row=rowcount, column=1, sticky=W)
+            intstart = intend        
+    #Return back to home screen button
+    Button(self.frame6, text='Back', command=self.home).grid(row=rowcount+1, column=0, sticky=W)
+```
+
+```python title="Generate Time Table, Store Time Table and Display Function" 73:76
+def timeTable(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+
+    #Frame for generate time table page
+    self.frame6 = Frame(self.master, width=300, height=300)
+    self.frame6.pack(expand = True, fill = BOTH)
+
+    #Buttons
+    self.workTimingBn = Button(self.frame6, text='Change Work Duration', command=self.workTiming).grid(row=0, column=0, sticky=W)
+    self.regenerateBn = Button(self.frame6, text='Regenerate Time Table', command=self.regenerateTT).grid(row=0, column=1, sticky=W)
+
+    #Pull work timings data and display
+    timings = db.child("timing").child(self.user['localId']).get()
+    if timings.val() is None:
+        startTiming = "Not Set"
+        endTiming = "Not Set"
+    else:
+        startTiming = timings.val()["startTiming"]
+        endTiming = timings.val()["endTiming"]
+
+    Label(self.frame6, text='Start Time:').grid(row=1, column=0, sticky=W)
+    Label(self.frame6, text='End Time:').grid(row=2, column=0, sticky=W)
+    Label(self.frame6, text='{}'.format(startTiming)).grid(row=1, column=1, sticky=W)
+    Label(self.frame6, text='{}'.format(endTiming)).grid(row=2, column=1, sticky=W)
+
+    rowcount = 5
+
+    #TIME TABLE GENERATION ALGORITM™
+    if startTiming != "Not Set" and endTiming != "Not Set":
+        #Only continue if there is valid timing data
+        if db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val() is None:
+            #Only continue if timetable for the day has not been generated yet
+
+            #Pull data from firebase
+            unsortedData = db.child("data").child(self.user['localId']).get()
+
+            #Sort Data
+            data = sorted(unsortedData.val().items(), key= lambda x: x[1]["date"])
+
+            #Find total time allocated for homework
+            aTime = (int(endTiming[:2])-int(startTiming[:2])) * 60 + (int(endTiming[2:])-int(startTiming[2:]))
+
+            totalTime = 0 #Track total time for generated homework timetable
+
+            timeWithoutBreak = 0 #Track time since there has been a break
+            
+            indexes = [] #Track homework data of homework added to timetable
+            order = [] #Track order of homework
+
+            for i in data:
+                #If homework is incomplete
+                if i[1]["completed"] == 0:
+                    hwtime = int(i[1]["timeTaken"]) #Homework time taken
+                    if hwtime + totalTime <= aTime: #If time spent on homework + existing time used up is not exceeding total time allocated
+                        #add homework to time table
+                        totalTime += hwtime
+                        indexes.append(i)
+                        order.append(hwtime)
+                        timeWithoutBreak += hwtime
+
+                    if aTime - totalTime <= 10:
+                        break
+                    
+                    if timeWithoutBreak >= 60: #If went on for 1hour without break
+                        #Add break
+                        order.append("b")
+                        totalTime += 10
+                        timeWithoutBreak = 0
+
+            #Add Timetable for today to Firebase Database
+            db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).set({"order": order, "indexes": indexes})
+        else:
+            #Pull Existing Timetable for today from Firebase Database
+            order = db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val()["order"]
+            indexes = db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val()["indexes"]
+
+        intstart = startTiming
+
+        #Function for adding time together
+        def addtime(time,add):
+            h, m = int(time[:2]), int(time[2:])
+            m += add
+            h += m//60
+            m %= 60
+            h,m = str(h), str(m)    
+            if len(h) < 2:
+                h="0"+h
+            if len(m) < 2:
+                m="0"+m
+            return h+m
+
+        hwcount = 0
+
+        #Title Labels
+        Label(self.frame6, text='Timetable for {}'.format(date.today().strftime("%d%m%Y"))).grid(row=3, column=0, sticky=W)
+        Label(self.frame6, text='Timing').grid(row=rowcount - 1, column=0, sticky=W)
+        Label(self.frame6, text='Homework').grid(row=rowcount - 1, column=1, sticky=W)
+
+        #Iterate through timetable data and display homework with proper timing
+        for task in order:
+            if task == "b":
+                task = 10
+                title = "break"
+            else:
+                title = indexes[hwcount][1]['name']
+                hwcount += 1
+            rowcount += 1
+            intend = addtime(intstart, task)
+            Label(self.frame6, text='{} - {}'.format(intstart, intend)).grid(row=rowcount, column=0, sticky=W)
+            Label(self.frame6, text='{}'.format(title)).grid(row=rowcount, column=1, sticky=W)
+            intstart = intend        
+    #Return back to home screen button
+    Button(self.frame6, text='Back', command=self.home).grid(row=rowcount+1, column=0, sticky=W)
+```
+
+```python title="Generate Time Table, Store Time Table and Display Function" 77:94
+def timeTable(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+
+    #Frame for generate time table page
+    self.frame6 = Frame(self.master, width=300, height=300)
+    self.frame6.pack(expand = True, fill = BOTH)
+
+    #Buttons
+    self.workTimingBn = Button(self.frame6, text='Change Work Duration', command=self.workTiming).grid(row=0, column=0, sticky=W)
+    self.regenerateBn = Button(self.frame6, text='Regenerate Time Table', command=self.regenerateTT).grid(row=0, column=1, sticky=W)
+
+    #Pull work timings data and display
+    timings = db.child("timing").child(self.user['localId']).get()
+    if timings.val() is None:
+        startTiming = "Not Set"
+        endTiming = "Not Set"
+    else:
+        startTiming = timings.val()["startTiming"]
+        endTiming = timings.val()["endTiming"]
+
+    Label(self.frame6, text='Start Time:').grid(row=1, column=0, sticky=W)
+    Label(self.frame6, text='End Time:').grid(row=2, column=0, sticky=W)
+    Label(self.frame6, text='{}'.format(startTiming)).grid(row=1, column=1, sticky=W)
+    Label(self.frame6, text='{}'.format(endTiming)).grid(row=2, column=1, sticky=W)
+
+    rowcount = 5
+
+    #TIME TABLE GENERATION ALGORITM™
+    if startTiming != "Not Set" and endTiming != "Not Set":
+        #Only continue if there is valid timing data
+        if db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val() is None:
+            #Only continue if timetable for the day has not been generated yet
+
+            #Pull data from firebase
+            unsortedData = db.child("data").child(self.user['localId']).get()
+
+            #Sort Data
+            data = sorted(unsortedData.val().items(), key= lambda x: x[1]["date"])
+
+            #Find total time allocated for homework
+            aTime = (int(endTiming[:2])-int(startTiming[:2])) * 60 + (int(endTiming[2:])-int(startTiming[2:]))
+
+            totalTime = 0 #Track total time for generated homework timetable
+
+            timeWithoutBreak = 0 #Track time since there has been a break
+            
+            indexes = [] #Track homework data of homework added to timetable
+            order = [] #Track order of homework
+
+            for i in data:
+                #If homework is incomplete
+                if i[1]["completed"] == 0:
+                    hwtime = int(i[1]["timeTaken"]) #Homework time taken
+                    if hwtime + totalTime <= aTime: #If time spent on homework + existing time used up is not exceeding total time allocated
+                        #add homework to time table
+                        totalTime += hwtime
+                        indexes.append(i)
+                        order.append(hwtime)
+                        timeWithoutBreak += hwtime
+
+                    if aTime - totalTime <= 10:
+                        break
+                    
+                    if timeWithoutBreak >= 60: #If went on for 1hour without break
+                        #Add break
+                        order.append("b")
+                        totalTime += 10
+                        timeWithoutBreak = 0
+
+            #Add Timetable for today to Firebase Database
+            db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).set({"order": order, "indexes": indexes})
+        else:
+            #Pull Existing Timetable for today from Firebase Database
+            order = db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val()["order"]
+            indexes = db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val()["indexes"]
+
+        intstart = startTiming
+
+        #Function for adding time together
+        def addtime(time,add):
+            h, m = int(time[:2]), int(time[2:])
+            m += add
+            h += m//60
+            m %= 60
+            h,m = str(h), str(m)    
+            if len(h) < 2:
+                h="0"+h
+            if len(m) < 2:
+                m="0"+m
+            return h+m
+
+        hwcount = 0
+
+        #Title Labels
+        Label(self.frame6, text='Timetable for {}'.format(date.today().strftime("%d%m%Y"))).grid(row=3, column=0, sticky=W)
+        Label(self.frame6, text='Timing').grid(row=rowcount - 1, column=0, sticky=W)
+        Label(self.frame6, text='Homework').grid(row=rowcount - 1, column=1, sticky=W)
+
+        #Iterate through timetable data and display homework with proper timing
+        for task in order:
+            if task == "b":
+                task = 10
+                title = "break"
+            else:
+                title = indexes[hwcount][1]['name']
+                hwcount += 1
+            rowcount += 1
+            intend = addtime(intstart, task)
+            Label(self.frame6, text='{} - {}'.format(intstart, intend)).grid(row=rowcount, column=0, sticky=W)
+            Label(self.frame6, text='{}'.format(title)).grid(row=rowcount, column=1, sticky=W)
+            intstart = intend        
+    #Return back to home screen button
+    Button(self.frame6, text='Back', command=self.home).grid(row=rowcount+1, column=0, sticky=W)
+```
+
+```python title="Generate Time Table, Store Time Table and Display Function" 96:112
+def timeTable(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+
+    #Frame for generate time table page
+    self.frame6 = Frame(self.master, width=300, height=300)
+    self.frame6.pack(expand = True, fill = BOTH)
+
+    #Buttons
+    self.workTimingBn = Button(self.frame6, text='Change Work Duration', command=self.workTiming).grid(row=0, column=0, sticky=W)
+    self.regenerateBn = Button(self.frame6, text='Regenerate Time Table', command=self.regenerateTT).grid(row=0, column=1, sticky=W)
+
+    #Pull work timings data and display
+    timings = db.child("timing").child(self.user['localId']).get()
+    if timings.val() is None:
+        startTiming = "Not Set"
+        endTiming = "Not Set"
+    else:
+        startTiming = timings.val()["startTiming"]
+        endTiming = timings.val()["endTiming"]
+
+    Label(self.frame6, text='Start Time:').grid(row=1, column=0, sticky=W)
+    Label(self.frame6, text='End Time:').grid(row=2, column=0, sticky=W)
+    Label(self.frame6, text='{}'.format(startTiming)).grid(row=1, column=1, sticky=W)
+    Label(self.frame6, text='{}'.format(endTiming)).grid(row=2, column=1, sticky=W)
+
+    rowcount = 5
+
+    #TIME TABLE GENERATION ALGORITM™
+    if startTiming != "Not Set" and endTiming != "Not Set":
+        #Only continue if there is valid timing data
+        if db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val() is None:
+            #Only continue if timetable for the day has not been generated yet
+
+            #Pull data from firebase
+            unsortedData = db.child("data").child(self.user['localId']).get()
+
+            #Sort Data
+            data = sorted(unsortedData.val().items(), key= lambda x: x[1]["date"])
+
+            #Find total time allocated for homework
+            aTime = (int(endTiming[:2])-int(startTiming[:2])) * 60 + (int(endTiming[2:])-int(startTiming[2:]))
+
+            totalTime = 0 #Track total time for generated homework timetable
+
+            timeWithoutBreak = 0 #Track time since there has been a break
+            
+            indexes = [] #Track homework data of homework added to timetable
+            order = [] #Track order of homework
+
+            for i in data:
+                #If homework is incomplete
+                if i[1]["completed"] == 0:
+                    hwtime = int(i[1]["timeTaken"]) #Homework time taken
+                    if hwtime + totalTime <= aTime: #If time spent on homework + existing time used up is not exceeding total time allocated
+                        #add homework to time table
+                        totalTime += hwtime
+                        indexes.append(i)
+                        order.append(hwtime)
+                        timeWithoutBreak += hwtime
+
+                    if aTime - totalTime <= 10:
+                        break
+                    
+                    if timeWithoutBreak >= 60: #If went on for 1hour without break
+                        #Add break
+                        order.append("b")
+                        totalTime += 10
+                        timeWithoutBreak = 0
+
+            #Add Timetable for today to Firebase Database
+            db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).set({"order": order, "indexes": indexes})
+        else:
+            #Pull Existing Timetable for today from Firebase Database
+            order = db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val()["order"]
+            indexes = db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).get().val()["indexes"]
+
+        intstart = startTiming
+
+        #Function for adding time together
+        def addtime(time,add):
+            h, m = int(time[:2]), int(time[2:])
+            m += add
+            h += m//60
+            m %= 60
+            h,m = str(h), str(m)    
+            if len(h) < 2:
+                h="0"+h
+            if len(m) < 2:
+                m="0"+m
+            return h+m
+
+        hwcount = 0
+
+        #Title Labels
+        Label(self.frame6, text='Timetable for {}'.format(date.today().strftime("%d%m%Y"))).grid(row=3, column=0, sticky=W)
+        Label(self.frame6, text='Timing').grid(row=rowcount - 1, column=0, sticky=W)
+        Label(self.frame6, text='Homework').grid(row=rowcount - 1, column=1, sticky=W)
+
+        #Iterate through timetable data and display homework with proper timing
+        for task in order:
+            if task == "b":
+                task = 10
+                title = "break"
+            else:
+                title = indexes[hwcount][1]['name']
+                hwcount += 1
+            rowcount += 1
+            intend = addtime(intstart, task)
+            Label(self.frame6, text='{} - {}'.format(intstart, intend)).grid(row=rowcount, column=0, sticky=W)
+            Label(self.frame6, text='{}'.format(title)).grid(row=rowcount, column=1, sticky=W)
+            intstart = intend        
+    #Return back to home screen button
+    Button(self.frame6, text='Back', command=self.home).grid(row=rowcount+1, column=0, sticky=W)
+```
+
+```python title="Regenerate Timetable for the Day Function"
+def regenerateTT(self):
+    db.child("timeTables").child(self.user['localId']).child(str(date.today().strftime("%d%m%Y"))).remove()
+    self.timeTable()
+```
+
+</CodeSurfer>
+
+---
+# Joshua Lim
+## Friends Function
+---
+
+<CodeSurfer>
+
+```python title="Friends Page"
+def friends(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+    
+    #Frame for friends page
+    self.frame8 = Frame(self.master, width=300, height=300)
+    self.frame8.pack(expand = True)
+
+    #Generate Widgets
+    Button(self.frame8, text='Back', command=self.home).grid(row=0, column=0, sticky=W)
+    Button(self.frame8, text='Add Friend', command=self.addFriend).grid(row=0, column=1, sticky=W)
+
+    rowCount = 1
+
+    #Friends data
+    friends = db.child("friends").get().val()
+
+    print(friends)
+
+    #Iterate through friends and display their names
+    for i in friends:
+        if i[1] == self.user["email"]:
+            Button(self.frame8, text=i[2], command=lambda j = i: self.displayFriendsHW(j)).grid(row=rowCount, column=0, sticky=W)
+            rowCount += 1
+```
+
+```python title="Friends Page" 20:24
+def friends(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+    
+    #Frame for friends page
+    self.frame8 = Frame(self.master, width=300, height=300)
+    self.frame8.pack(expand = True)
+
+    #Generate Widgets
+    Button(self.frame8, text='Back', command=self.home).grid(row=0, column=0, sticky=W)
+    Button(self.frame8, text='Add Friend', command=self.addFriend).grid(row=0, column=1, sticky=W)
+
+    rowCount = 1
+
+    #Friends data
+    friends = db.child("friends").get().val()
+
+    print(friends)
+
+    #Iterate through friends and display their names
+    for i in friends:
+        if i[1] == self.user["email"]:
+            Button(self.frame8, text=i[2], command=lambda j = i: self.displayFriendsHW(j)).grid(row=rowCount, column=0, sticky=W)
+            rowCount += 1
+```
+
+```python title="Add new friends Function"
+def addFriend(self):
+    for i in self.master.winfo_children():
+        i.destroy()
+    
+    #Frame for adding friends page
+    self.frame9 = Frame(self.master, width=300, height=300)
+    self.frame9.pack(expand = True)
+
+    emailIn = StringVar()
+    Label(self.frame9, text='Enter Email:').grid(row=0, column=0, sticky=W)
+    Entry(self.frame9, width=30, textvariable=emailIn).grid(row=2, column=0, sticky=W)
+    Button(self.frame9, text='Confirm', command=lambda:self.confirmFriend(emailIn.get())).grid(row=2, column=1, sticky=W)
+    Button(self.frame9, text='Cancel', command=self.friends).grid(row=2, column=2, sticky=W)
+```
+
+```python title="Add Friends Validation"
+def confirmFriend(self, email):
+        regexTestCase = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        #Check that email matches email format
+        if re.match(regexTestCase, email):
+            existingfriends = db.child("friends").get().val()
+
+            #Check if user is actually you and reasure the user
+            if email == self.user['email']:
+                messagebox.showerror("Error", "Dont be so narcissistic, you can't add yourself as a friend! I am your friend tho 🥰")
+                return
+
+            #Check if user has already sent a friend request
+            if existingfriends != None:
+                for i in existingfriends:
+                    if (i[1] == email) and (i[0] == self.user['localId']):
+                        messagebox.showerror("Error", "Friend already added")
+                        return
+
+                db.child("friends").child(len(existingfriends)).set([self.user['localId'], email, self.user['email']])
+                messagebox.showinfo("Success", "Friend added")
+                self.friends()
+            else:
+                db.child("friends").set([[self.user['localId'], email, self.user['email']]])
+                messagebox.showinfo("Success", "Friend added")
+                self.friends()
+        else:
+            #Alert user that email is invalid
+            messagebox.showerror("Error", "Please enter a valid email")
+            self.addFriend()
+```
+
+```python title="Add Friends Validation" 2:5
+def confirmFriend(self, email):
+        regexTestCase = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        #Check that email matches email format
+        if re.match(regexTestCase, email):
+            existingfriends = db.child("friends").get().val()
+
+            #Check if user is actually you and reasure the user
+            if email == self.user['email']:
+                messagebox.showerror("Error", "Dont be so narcissistic, you can't add yourself as a friend! I am your friend tho 🥰")
+                return
+
+            #Check if user has already sent a friend request
+            if existingfriends != None:
+                for i in existingfriends:
+                    if (i[1] == email) and (i[0] == self.user['localId']):
+                        messagebox.showerror("Error", "Friend already added")
+                        return
+
+                db.child("friends").child(len(existingfriends)).set([self.user['localId'], email, self.user['email']])
+                messagebox.showinfo("Success", "Friend added")
+                self.friends()
+            else:
+                db.child("friends").set([[self.user['localId'], email, self.user['email']]])
+                messagebox.showinfo("Success", "Friend added")
+                self.friends()
+        else:
+            #Alert user that email is invalid
+            messagebox.showerror("Error", "Please enter a valid email")
+            self.addFriend()
+```
+
+```python title="Add Friends Validation" 7:10
+def confirmFriend(self, email):
+        regexTestCase = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        #Check that email matches email format
+        if re.match(regexTestCase, email):
+            existingfriends = db.child("friends").get().val()
+
+            #Check if user is actually you and reasure the user
+            if email == self.user['email']:
+                messagebox.showerror("Error", "Dont be so narcissistic, you can't add yourself as a friend! I am your friend tho 🥰")
+                return
+
+            #Check if user has already sent a friend request
+            if existingfriends != None:
+                for i in existingfriends:
+                    if (i[1] == email) and (i[0] == self.user['localId']):
+                        messagebox.showerror("Error", "Friend already added")
+                        return
+
+                db.child("friends").child(len(existingfriends)).set([self.user['localId'], email, self.user['email']])
+                messagebox.showinfo("Success", "Friend added")
+                self.friends()
+            else:
+                db.child("friends").set([[self.user['localId'], email, self.user['email']]])
+                messagebox.showinfo("Success", "Friend added")
+                self.friends()
+        else:
+            #Alert user that email is invalid
+            messagebox.showerror("Error", "Please enter a valid email")
+            self.addFriend()
+```
+
+```python title="Add Friends Validation" 26:29
+def confirmFriend(self, email):
+        regexTestCase = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        #Check that email matches email format
+        if re.match(regexTestCase, email):
+            existingfriends = db.child("friends").get().val()
+
+            #Check if user is actually you and reasure the user
+            if email == self.user['email']:
+                messagebox.showerror("Error", "Dont be so narcissistic, you can't add yourself as a friend! I am your friend tho 🥰")
+                return
+
+            #Check if user has already sent a friend request
+            if existingfriends != None:
+                for i in existingfriends:
+                    if (i[1] == email) and (i[0] == self.user['localId']):
+                        messagebox.showerror("Error", "Friend already added")
+                        return
+
+                db.child("friends").child(len(existingfriends)).set([self.user['localId'], email, self.user['email']])
+                messagebox.showinfo("Success", "Friend added")
+                self.friends()
+            else:
+                db.child("friends").set([[self.user['localId'], email, self.user['email']]])
+                messagebox.showinfo("Success", "Friend added")
+                self.friends()
+        else:
+            #Alert user that email is invalid
+            messagebox.showerror("Error", "Please enter a valid email")
+            self.addFriend()
+```
+
+```python title="Add Friends Validation" 12:21
+def confirmFriend(self, email):
+        regexTestCase = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        #Check that email matches email format
+        if re.match(regexTestCase, email):
+            existingfriends = db.child("friends").get().val()
+
+            #Check if user is actually you and reasure the user
+            if email == self.user['email']:
+                messagebox.showerror("Error", "Dont be so narcissistic, you can't add yourself as a friend! I am your friend tho 🥰")
+                return
+
+            #Check if user has already sent a friend request
+            if existingfriends != None:
+                for i in existingfriends:
+                    if (i[1] == email) and (i[0] == self.user['localId']):
+                        messagebox.showerror("Error", "Friend already added")
+                        return
+
+                db.child("friends").child(len(existingfriends)).set([self.user['localId'], email, self.user['email']])
+                messagebox.showinfo("Success", "Friend added")
+                self.friends()
+            else:
+                db.child("friends").set([[self.user['localId'], email, self.user['email']]])
+                messagebox.showinfo("Success", "Friend added")
+                self.friends()
+        else:
+            #Alert user that email is invalid
+            messagebox.showerror("Error", "Please enter a valid email")
+            self.addFriend()
+```
+
+```python title="Add Friends Validation" 22:25
+def confirmFriend(self, email):
+        regexTestCase = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        #Check that email matches email format
+        if re.match(regexTestCase, email):
+            existingfriends = db.child("friends").get().val()
+
+            #Check if user is actually you and reasure the user
+            if email == self.user['email']:
+                messagebox.showerror("Error", "Dont be so narcissistic, you can't add yourself as a friend! I am your friend tho 🥰")
+                return
+
+            #Check if user has already sent a friend request
+            if existingfriends != None:
+                for i in existingfriends:
+                    if (i[1] == email) and (i[0] == self.user['localId']):
+                        messagebox.showerror("Error", "Friend already added")
+                        return
+
+                db.child("friends").child(len(existingfriends)).set([self.user['localId'], email, self.user['email']])
+                messagebox.showinfo("Success", "Friend added")
+                self.friends()
+            else:
+                db.child("friends").set([[self.user['localId'], email, self.user['email']]])
+                messagebox.showinfo("Success", "Friend added")
+                self.friends()
+        else:
+            #Alert user that email is invalid
+            messagebox.showerror("Error", "Please enter a valid email")
+            self.addFriend()
+```
+
+```python title="View Friends' Homework"
+def displayFriendsHW(self, friend):
+    for i in self.master.winfo_children():
+        i.destroy()
+    
+    #Frame for displaying friends homework
+    self.frame10 = Frame(self.master, width=300, height=300)
+    self.frame10.pack(expand = True)
+
+    #Generate Widgets
+    Button(self.frame10, text='Back', command=self.friends).grid(row=0, column=0, sticky=W)
+    Label(self.frame10, text="{}'s Homework".format(friend[2])).grid(row=0, column=1, sticky=W)
+
+    #Friends homework data
+    homework = db.child("data").child(friend[0]).get()
+    hasData = False
+
+    #Iterate through friends homework and display their names
+    rowCount = 1
+    if homework != None:
+        for i in homework.each():
+            if i.val()["completed"] == 0:
+                Label(self.frame10, text=i.val()["name"]).grid(row=rowCount, column=0, sticky=W)
+                Label(self.frame10, text=i.val()["date"]).grid(row=rowCount, column=1, sticky=W)
+                Button(self.frame10, text='Add to my Homework', command=lambda j = i.val(): self.addFriendData(j)).grid(row=rowCount, column=2, sticky=W)
+                rowCount += 1
+                hasData = True
+    else:
+        Label(self.frame10, text="No homework to display").grid(row=1, column=1, sticky=W)
+
+    if hasData == False:
+        Label(self.frame10, text="No homework to display").grid(row=1, column=1, sticky=W)
+```
+
+```python title="View Friends' Homework" 16:26
+def displayFriendsHW(self, friend):
+    for i in self.master.winfo_children():
+        i.destroy()
+    
+    #Frame for displaying friends homework
+    self.frame10 = Frame(self.master, width=300, height=300)
+    self.frame10.pack(expand = True)
+
+    #Generate Widgets
+    Button(self.frame10, text='Back', command=self.friends).grid(row=0, column=0, sticky=W)
+    Label(self.frame10, text="{}'s Homework".format(friend[2])).grid(row=0, column=1, sticky=W)
+
+    #Friends homework data
+    homework = db.child("data").child(friend[0]).get()
+    hasData = False
+
+    #Iterate through friends homework and display their names
+    rowCount = 1
+    if homework != None:
+        for i in homework.each():
+            if i.val()["completed"] == 0:
+                Label(self.frame10, text=i.val()["name"]).grid(row=rowCount, column=0, sticky=W)
+                Label(self.frame10, text=i.val()["date"]).grid(row=rowCount, column=1, sticky=W)
+                Button(self.frame10, text='Add to my Homework', command=lambda j = i.val(): self.addFriendData(j)).grid(row=rowCount, column=2, sticky=W)
+                rowCount += 1
+                hasData = True
+    else:
+        Label(self.frame10, text="No homework to display").grid(row=1, column=1, sticky=W)
+
+    if hasData == False:
+        Label(self.frame10, text="No homework to display").grid(row=1, column=1, sticky=W)
+```
+
+```python title="View Friends' Homework" 17:21
+def displayFriendsHW(self, friend):
+    for i in self.master.winfo_children():
+        i.destroy()
+    
+    #Frame for displaying friends homework
+    self.frame10 = Frame(self.master, width=300, height=300)
+    self.frame10.pack(expand = True)
+
+    #Generate Widgets
+    Button(self.frame10, text='Back', command=self.friends).grid(row=0, column=0, sticky=W)
+    Label(self.frame10, text="{}'s Homework".format(friend[2])).grid(row=0, column=1, sticky=W)
+
+    #Friends homework data
+    homework = db.child("data").child(friend[0]).get()
+    hasData = False
+
+    #Iterate through friends homework and display their names
+    rowCount = 1
+    if homework != None:
+        for i in homework.each():
+            if i.val()["completed"] == 0:
+                Label(self.frame10, text=i.val()["name"]).grid(row=rowCount, column=0, sticky=W)
+                Label(self.frame10, text=i.val()["date"]).grid(row=rowCount, column=1, sticky=W)
+                Button(self.frame10, text='Add to my Homework', command=lambda j = i.val(): self.addFriendData(j)).grid(row=rowCount, column=2, sticky=W)
+                rowCount += 1
+                hasData = True
+    else:
+        Label(self.frame10, text="No homework to display").grid(row=1, column=1, sticky=W)
+
+    if hasData == False:
+        Label(self.frame10, text="No homework to display").grid(row=1, column=1, sticky=W)
+```
+
+```python title="Add selected friend's homework to your own Homwork List"
+def addFriendData(self, data):
+        db.child("data").child(self.user['localId']).push(data)
+        messagebox.showinfo("Success", "Homework added successfully")
+```
+
+</CodeSurfer>
+
+---
+<CodeSurfer>
+
+```python title="Start the App"
+...
+class app:
+...
+
+#Start App
+app(root)
+root.mainloop()
+```
+
+</CodeSurfer>
