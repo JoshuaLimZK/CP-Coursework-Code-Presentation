@@ -448,7 +448,7 @@ def home(self):
                     rowCounter += 1
 ```
 
-```python title="Home Page" 5:28
+```python title="Generate Components" 5:28
 def home(self):
         for i in self.master.winfo_children():
             i.destroy()
@@ -537,7 +537,7 @@ def home(self):
                     rowCounter += 1
 ```
 
-```python title="Home Page" 30:31
+```python title="Pull Data from Firebase Database" 30:31
 def home(self):
         for i in self.master.winfo_children():
             i.destroy()
@@ -626,7 +626,7 @@ def home(self):
                     rowCounter += 1
 ```
 
-```python title="Home Page" 36:38
+```python title="Tell User if no Homework Data" 36:38
 def home(self):
         for i in self.master.winfo_children():
             i.destroy()
@@ -715,7 +715,7 @@ def home(self):
                     rowCounter += 1
 ```
 
-```python title="Home Page" 40:50
+```python title="Title Labels for Incomplete HW Section" 40:50
 def home(self):
         for i in self.master.winfo_children():
             i.destroy()
@@ -804,7 +804,7 @@ def home(self):
                     rowCounter += 1
 ```
 
-```python title="Home Page" 52:63
+```python title="Display Incomplete Homework" 52:63
 def home(self):
         for i in self.master.winfo_children():
             i.destroy()
@@ -893,7 +893,7 @@ def home(self):
                     rowCounter += 1
 ```
 
-```python title="Home Page" 64:73
+```python title="Title Labels for Complete HW Section" 64:73
 def home(self):
         for i in self.master.winfo_children():
             i.destroy()
@@ -982,7 +982,7 @@ def home(self):
                     rowCounter += 1
 ```
 
-```python title="Home Page" 74:86
+```python title="Display Completed Homework" 74:86
 def home(self):
         for i in self.master.winfo_children():
             i.destroy()
@@ -1141,7 +1141,7 @@ def confirmAdd(self):
 ```
 
 
-```python title="Add Homework Validation" 2:7
+```python title="Check if inputs match RegEx" 2:7
 def confirmAdd(self):
     regexTestCase = "^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
     #Only push data if date follows DD/MM/YYYY format and time taken is a valid number
@@ -1155,7 +1155,7 @@ def confirmAdd(self):
         return
 ```
 
-```python title="Add Homework Validation" 8:11
+```python title="Throw error is does not match" 8:11
 def confirmAdd(self):
     regexTestCase = "^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
     #Only push data if date follows DD/MM/YYYY format and time taken is a valid number
@@ -1269,7 +1269,7 @@ def confirmEdit(self, key):
         return
 ```
 
-```python title="Confirm Data Edit Function" 2:7
+```python title="Check if Input matches RegEx" 2:7
 def confirmEdit(self, key):
     regexTestCase = "^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
     #Only push data if date follows DD/MM/YYYY format and time taken is a valid number
@@ -1283,7 +1283,7 @@ def confirmEdit(self, key):
         return
 ```
 
-```python title="Confirm Data Edit Function" 8:11
+```python title="Throw error is Input is wrong" 8:11
 def confirmEdit(self, key):
     regexTestCase = "^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
     #Only push data if date follows DD/MM/YYYY format and time taken is a valid number
@@ -1310,7 +1310,7 @@ def deleteData(self, key, name):
     self.manage()
 ```
 
-```python title="Delete Data Function" 3:4
+```python title="Warn user before they delete data" 3:4
 def deleteData(self, key, name):
 
     #Warn user before they delete data
@@ -1323,7 +1323,7 @@ def deleteData(self, key, name):
     self.manage()
 ```
 
-```python title="Delete Data Function" 6:7
+```python title="Delete Data if confirmed" 6:7
 def deleteData(self, key, name):
 
     #Warn user before they delete data
@@ -1336,7 +1336,7 @@ def deleteData(self, key, name):
     self.manage()
 ```
 
-```python title="Delete Data Function" 9:10
+```python title="Return to Manager Page" 9:10
 def deleteData(self, key, name):
 
     #Warn user before they delete data
@@ -1398,7 +1398,7 @@ def confirmWorkTiming(self, startTiming, endTiming):
             self.workTiming()
 ```
 
-```python title="Confirm time Range" 2:7
+```python title="Check if Input Matches RegEx" 2:7
 def confirmWorkTiming(self, startTiming, endTiming):
         regexTestCase = "^([01]\d|2[0-4]):?([0-5]\d)$"
         #Check that timing matches 24H "HHMM" format
@@ -1412,7 +1412,7 @@ def confirmWorkTiming(self, startTiming, endTiming):
             self.workTiming()
 ```
 
-```python title="Confirm time Range" 8:11
+```python title="Throw Error if it Does not match" 8:11
 def confirmWorkTiming(self, startTiming, endTiming):
         regexTestCase = "^([01]\d|2[0-4]):?([0-5]\d)$"
         #Check that timing matches 24H "HHMM" format
@@ -1543,7 +1543,7 @@ def timeTable(self):
     Button(self.frame6, text='Back', command=self.home).grid(row=rowcount+1, column=0, sticky=W)
 ```
 
-```python title="Generate Time Table, Store Time Table and Display Function" 5:27
+```python title="Generate Componets" 5:27
 def timeTable(self):
     for i in self.master.winfo_children():
         i.destroy()
@@ -1660,7 +1660,7 @@ def timeTable(self):
     Button(self.frame6, text='Back', command=self.home).grid(row=rowcount+1, column=0, sticky=W)
 ```
 
-```python title="Generate Time Table, Store Time Table and Display Function" 29:72
+```python title="Generate Time Table if havent generated for the day" 29:72
 def timeTable(self):
     for i in self.master.winfo_children():
         i.destroy()
@@ -1777,7 +1777,7 @@ def timeTable(self):
     Button(self.frame6, text='Back', command=self.home).grid(row=rowcount+1, column=0, sticky=W)
 ```
 
-```python title="Generate Time Table, Store Time Table and Display Function" 73:76
+```python title="Pulls Existing Timetable if avaliable" 73:76
 def timeTable(self):
     for i in self.master.winfo_children():
         i.destroy()
@@ -1894,7 +1894,7 @@ def timeTable(self):
     Button(self.frame6, text='Back', command=self.home).grid(row=rowcount+1, column=0, sticky=W)
 ```
 
-```python title="Generate Time Table, Store Time Table and Display Function" 77:94
+```python title="Format Time" 77:94
 def timeTable(self):
     for i in self.master.winfo_children():
         i.destroy()
@@ -2011,7 +2011,7 @@ def timeTable(self):
     Button(self.frame6, text='Back', command=self.home).grid(row=rowcount+1, column=0, sticky=W)
 ```
 
-```python title="Generate Time Table, Store Time Table and Display Function" 96:112
+```python title="Display Time Table" 96:112
 def timeTable(self):
     for i in self.master.winfo_children():
         i.destroy()
@@ -2170,7 +2170,7 @@ def friends(self):
             rowCount += 1
 ```
 
-```python title="Friends Page" 20:24
+```python title="Display Avaliable" 20:24
 def friends(self):
     for i in self.master.winfo_children():
         i.destroy()
@@ -2245,7 +2245,7 @@ def confirmFriend(self, email):
             self.addFriend()
 ```
 
-```python title="Add Friends Validation" 2:5
+```python title="Checks whether input matches RegEx" 2:5
 def confirmFriend(self, email):
         regexTestCase = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
         #Check that email matches email format
@@ -2277,7 +2277,7 @@ def confirmFriend(self, email):
             self.addFriend()
 ```
 
-```python title="Add Friends Validation" 7:10
+```python title="Alert User that Email is invalid" 26:29
 def confirmFriend(self, email):
         regexTestCase = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
         #Check that email matches email format
@@ -2309,7 +2309,7 @@ def confirmFriend(self, email):
             self.addFriend()
 ```
 
-```python title="Add Friends Validation" 26:29
+```python title="Check if email is the user" 7:10
 def confirmFriend(self, email):
         regexTestCase = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
         #Check that email matches email format
@@ -2341,7 +2341,7 @@ def confirmFriend(self, email):
             self.addFriend()
 ```
 
-```python title="Add Friends Validation" 12:21
+```python title="Check if user has any friends" 12:21
 def confirmFriend(self, email):
         regexTestCase = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
         #Check that email matches email format
@@ -2373,7 +2373,7 @@ def confirmFriend(self, email):
             self.addFriend()
 ```
 
-```python title="Add Friends Validation" 22:25
+```python title="Display success message" 22:25
 def confirmFriend(self, email):
         regexTestCase = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
         #Check that email matches email format
@@ -2439,7 +2439,7 @@ def displayFriendsHW(self, friend):
         Label(self.frame10, text="No homework to display").grid(row=1, column=1, sticky=W)
 ```
 
-```python title="View Friends' Homework" 16:26
+```python title="Display Friends Homworks" 16:26
 def displayFriendsHW(self, friend):
     for i in self.master.winfo_children():
         i.destroy()
@@ -2473,41 +2473,8 @@ def displayFriendsHW(self, friend):
         Label(self.frame10, text="No homework to display").grid(row=1, column=1, sticky=W)
 ```
 
-```python title="View Friends' Homework" 17:21
-def displayFriendsHW(self, friend):
-    for i in self.master.winfo_children():
-        i.destroy()
-    
-    #Frame for displaying friends homework
-    self.frame10 = Frame(self.master, width=300, height=300)
-    self.frame10.pack(expand = True)
 
-    #Generate Widgets
-    Button(self.frame10, text='Back', command=self.friends).grid(row=0, column=0, sticky=W)
-    Label(self.frame10, text="{}'s Homework".format(friend[2])).grid(row=0, column=1, sticky=W)
-
-    #Friends homework data
-    homework = db.child("data").child(friend[0]).get()
-    hasData = False
-
-    #Iterate through friends homework and display their names
-    rowCount = 1
-    if homework != None:
-        for i in homework.each():
-            if i.val()["completed"] == 0:
-                Label(self.frame10, text=i.val()["name"]).grid(row=rowCount, column=0, sticky=W)
-                Label(self.frame10, text=i.val()["date"]).grid(row=rowCount, column=1, sticky=W)
-                Button(self.frame10, text='Add to my Homework', command=lambda j = i.val(): self.addFriendData(j)).grid(row=rowCount, column=2, sticky=W)
-                rowCount += 1
-                hasData = True
-    else:
-        Label(self.frame10, text="No homework to display").grid(row=1, column=1, sticky=W)
-
-    if hasData == False:
-        Label(self.frame10, text="No homework to display").grid(row=1, column=1, sticky=W)
-```
-
-```python title="Add selected friend's homework to your own Homwork List"
+```python title="Add selected friend's homework to your own Homework List"
 def addFriendData(self, data):
         db.child("data").child(self.user['localId']).push(data)
         messagebox.showinfo("Success", "Homework added successfully")
@@ -2529,3 +2496,7 @@ root.mainloop()
 ```
 
 </CodeSurfer>
+
+---
+
+#Thank You!
